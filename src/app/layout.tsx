@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "나와 어울리는 2025 새해 목표는?",
-  description: "10가지 질문으로 알아보는 나에게 딱 맞는 새해 목표 테스트",
+  title: "너에게 딱 맞는 새해 목표 찾기",
+  description: "올해도 작심삼일? 10가지 질문이면 충분해",
   openGraph: {
-    title: "나와 어울리는 2025 새해 목표는?",
-    description: "10가지 질문으로 알아보는 나에게 딱 맞는 새해 목표 테스트",
+    title: "너에게 딱 맞는 새해 목표 찾기",
+    description: "올해도 작심삼일? 10가지 질문이면 충분해",
     type: "website",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "나와 어울리는 2025 새해 목표는?",
-    description: "10가지 질문으로 알아보는 나에게 딱 맞는 새해 목표 테스트",
+    title: "너에게 딱 맞는 새해 목표 찾기",
+    description: "올해도 작심삼일? 10가지 질문이면 충분해",
   },
 };
 

@@ -8,16 +8,14 @@ export default function Home() {
     <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-stone-900 mb-2">
-            나와 어울리는
+          <p className="text-stone-400 text-sm mb-3">
+            올해도 작심삼일?
+          </p>
+          <h1 className="text-3xl font-black text-stone-900 mb-4 leading-tight">
+            너에게 딱 맞는<br />새해 목표 찾기
           </h1>
-          <h2 className="text-4xl font-black text-stone-900 mb-4">
-            2025 새해 목표는?
-          </h2>
           <p className="text-stone-500">
-            10가지 질문으로 알아보는
-            <br />
-            나에게 딱 맞는 새해 목표
+            10가지 질문이면 충분해
           </p>
         </div>
 

@@ -21,12 +21,12 @@ export default function ResultPage() {
 
   const handleShare = async () => {
     const shareUrl = window.location.origin;
-    const shareText = `나는 ${result?.emoji}${result?.title}! 2025 새해 목표는 "${result?.goal}"래. 너는 무슨 형이야?`;
+    const shareText = `나는 ${result?.emoji}${result?.title}! 새해 목표는 "${result?.goal}"래. 너는 무슨 형이야?`;
 
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "나와 어울리는 2025 새해 목표는?",
+          title: "너에게 딱 맞는 새해 목표 찾기",
           text: shareText,
           url: shareUrl,
         });
@@ -66,7 +66,7 @@ export default function ResultPage() {
 
         {/* Goal */}
         <div className="text-center mb-6">
-          <p className="text-stone-400 text-sm mb-1">2025 추천 목표</p>
+          <p className="text-stone-400 text-sm mb-1">새해 목표</p>
           <h1 className="text-2xl font-black text-stone-900">
             &ldquo;{result.goal}&rdquo;
           </h1>

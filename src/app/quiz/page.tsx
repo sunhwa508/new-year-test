@@ -5,6 +5,17 @@ import { useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
 import { ScoreMap } from "@/data/results";
 
+// 진행 상황별 코멘트
+const getProgressComment = (current: number, total: number): string => {
+  const ratio = current / total;
+  if (current === 0) return "시작해볼까?";
+  if (ratio <= 0.25) return "좋은 출발이야!";
+  if (ratio <= 0.5) return "벌써 절반 왔어!";
+  if (ratio <= 0.75) return "거의 다 왔다!";
+  if (ratio < 1) return "마지막 질문이야!";
+  return "";
+};
+
 export default function QuizPage() {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -12,6 +23,7 @@ export default function QuizPage() {
 
   const question = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const comment = getProgressComment(currentQuestion, questions.length);
 
   const handleAnswer = (answerScores: { [type: string]: number }) => {
     // 기존 점수에 새 점수 더하기
@@ -34,8 +46,9 @@ export default function QuizPage() {
       <div className="max-w-md w-full">
         {/* Progress */}
         <div className="mb-8">
-          <div className="flex justify-between text-sm text-stone-400 mb-2">
-            <span>{currentQuestion + 1} / {questions.length}</span>
+          <div className="flex justify-between text-sm mb-2">
+            <span className="text-stone-400">{currentQuestion + 1} / {questions.length}</span>
+            <span className="text-stone-500 font-medium">{comment}</span>
           </div>
           <div className="w-full bg-stone-200 rounded-full h-1">
             <div

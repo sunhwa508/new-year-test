@@ -3,23 +3,40 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import html2canvas from "html2canvas";
-import { calculateResult, Result } from "@/data/results";
+import { calculateResultWithSub, Result, CalculatedResult } from "@/data/results";
 import { trackQuizComplete, trackShare } from "@/lib/gtag";
 
 export default function ResultPage() {
-  const [result, setResult] = useState<Result | null>(null);
+  const [result, setResult] = useState<CalculatedResult | null>(null);
   const [isSharing, setIsSharing] = useState(false);
+  const [countdown, setCountdown] = useState<number | null>(3);
+  const [showResult, setShowResult] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const savedScores = localStorage.getItem("quizScores");
     if (savedScores) {
       const scores = JSON.parse(savedScores);
-      const calculatedResult = calculateResult(scores);
+      const calculatedResult = calculateResultWithSub(scores);
       setResult(calculatedResult);
-      trackQuizComplete(calculatedResult.id);
+      trackQuizComplete(calculatedResult.main.id);
     }
   }, []);
+
+  // 카운트다운 효과
+  useEffect(() => {
+    if (result && countdown !== null && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 600);
+      return () => clearTimeout(timer);
+    } else if (countdown === 0) {
+      setTimeout(() => {
+        setShowResult(true);
+        setCountdown(null);
+      }, 400);
+    }
+  }, [result, countdown]);
 
   const handleShare = async () => {
     if (!resultRef.current || !result) return;
@@ -38,7 +55,7 @@ export default function ResultPage() {
 
       const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
       const shareUrl = window.location.origin;
-      const shareText = `나는 [${result.title}]! 새해 목표는 "${result.goal}"래. 너는 무슨 형이야?`;
+      const shareText = `나는 [${result.main.title}]! 새해 목표는 "${result.main.goal}"래. 너는 무슨 형이야?`;
 
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({
@@ -70,6 +87,7 @@ export default function ResultPage() {
     }
   };
 
+  // 로딩 중
   if (!result) {
     return (
       <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
@@ -80,43 +98,90 @@ export default function ResultPage() {
     );
   }
 
+  // 카운트다운 화면
+  if (!showResult) {
+    return (
+      <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full text-center">
+          <p className="text-stone-400 text-lg mb-4">두근두근...</p>
+          <div className="text-8xl font-black text-stone-900 animate-pulse">
+            {countdown === 0 ? "!" : countdown}
+          </div>
+          <p className="text-stone-400 text-sm mt-6">당신의 새해 목표가 공개됩니다</p>
+        </div>
+      </main>
+    );
+  }
+
+  const { main: mainResult, sub: subResult } = result;
+
   return (
     <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Capture Area */}
         <div ref={resultRef} className="bg-stone-50 p-6 rounded-2xl">
           {/* Result Type - Hero */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <p className="text-stone-400 text-sm mb-3">당신의 유형은</p>
             <div className="inline-block px-6 py-3 bg-stone-900 text-white rounded-full">
-              <span className="text-xl font-bold">{result.title}</span>
+              <span className="text-xl font-bold">{mainResult.title}</span>
             </div>
           </div>
+
+          {/* Quote */}
+          <p className="text-center text-stone-500 italic mb-6">
+            &quot;{mainResult.quote}&quot;
+          </p>
 
           {/* Goal */}
           <div className="text-center mb-6">
             <p className="text-stone-400 text-sm mb-1">새해 목표</p>
             <h1 className="text-2xl font-black text-stone-900">
-              &quot;{result.goal}&quot;
+              &quot;{mainResult.goal}&quot;
             </h1>
           </div>
 
           {/* Description */}
           <p className="text-stone-600 text-center mb-6 leading-relaxed">
-            {result.description}
+            {mainResult.description}
           </p>
 
+          {/* Sub Type */}
+          {subResult && (
+            <div className="bg-stone-100 rounded-xl p-4 mb-4 text-center">
+              <p className="text-stone-400 text-xs mb-1">숨겨진 부캐</p>
+              <p className="text-stone-700 font-semibold">{subResult.title}</p>
+              <p className="text-stone-500 text-xs mt-1">&quot;{subResult.goal}&quot;</p>
+            </div>
+          )}
+
           {/* Tips */}
-          <div className="bg-white border border-stone-200 rounded-xl p-5">
+          <div className="bg-white border border-stone-200 rounded-xl p-5 mb-4">
             <h3 className="font-bold text-stone-900 mb-3">이렇게 시작해봐</h3>
             <ul className="space-y-2">
-              {result.tips.map((tip, index) => (
+              {mainResult.tips.map((tip, index) => (
                 <li key={index} className="text-stone-600 text-sm flex items-start gap-2">
                   <span className="text-stone-400">-</span>
                   {tip}
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* TMI */}
+          <div className="bg-white border border-stone-200 rounded-xl p-5">
+            <h3 className="font-bold text-stone-900 mb-3">TMI</h3>
+            <div className="space-y-2 text-sm">
+              <p className="text-stone-600">
+                <span className="text-stone-400">BGM</span> {mainResult.tmi.song}
+              </p>
+              <p className="text-stone-600">
+                <span className="text-stone-400">Movie</span> {mainResult.tmi.movie}
+              </p>
+              <p className="text-stone-600">
+                <span className="text-stone-400">Gift</span> {mainResult.tmi.gift}
+              </p>
+            </div>
           </div>
 
           {/* Watermark */}

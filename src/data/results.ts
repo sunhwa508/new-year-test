@@ -6,6 +6,12 @@ export interface Result {
   emoji: string;
   color: string;
   tips: string[];
+  tmi: {
+    song: string;
+    movie: string;
+    gift: string;
+  };
+  quote: string;
 }
 
 export const results: Record<string, Result> = {
@@ -22,6 +28,12 @@ export const results: Record<string, Result> = {
       "전날 밤 내일 할 일 적어두기",
       "아침 루틴 체크리스트 만들기",
     ],
+    tmi: {
+      song: "BTS - Permission to Dance",
+      movie: "소울 (Soul)",
+      gift: "스마트 알람시계",
+    },
+    quote: "오늘 하루도 갓생 살자!",
   },
   earlybird: {
     id: "earlybird",
@@ -35,6 +47,12 @@ export const results: Record<string, Result> = {
       "취침 1시간 전 스마트폰 내려놓기",
       "침실 온도 서늘하게 유지",
     ],
+    tmi: {
+      song: "잔나비 - 주저하는 연인들을 위해",
+      movie: "어바웃 타임",
+      gift: "수면등 & 백색소음기",
+    },
+    quote: "일찍 자는 사람이 세상을 얻는다",
   },
   minimalist: {
     id: "minimalist",
@@ -48,6 +66,12 @@ export const results: Record<string, Result> = {
       "하나 사면 하나 버리기",
       "디지털 파일도 정리하기",
     ],
+    tmi: {
+      song: "혁오 - TOMBOY",
+      movie: "미니멀리즘: 비움의 미학",
+      gift: "심플한 무지 노트",
+    },
+    quote: "적게 가지고, 더 많이 살자",
   },
 
   // 건강 계열
@@ -63,6 +87,12 @@ export const results: Record<string, Result> = {
       "운동 파트너 구하기",
       "운동복 미리 꺼내두기",
     ],
+    tmi: {
+      song: "Survivor - Eye of the Tiger",
+      movie: "록키 (Rocky)",
+      gift: "블루투스 이어폰",
+    },
+    quote: "오늘 운동 안 하면 내일의 나가 힘들어",
   },
   dieter: {
     id: "dieter",
@@ -76,6 +106,12 @@ export const results: Record<string, Result> = {
       "야식 줄이기 (끊긴 너무 어려워)",
       "배달앱 알림 끄기",
     ],
+    tmi: {
+      song: "IU - 스물셋",
+      movie: "리틀 포레스트",
+      gift: "예쁜 텀블러",
+    },
+    quote: "천천히 가도 괜찮아, 포기만 안 하면 돼",
   },
   meditator: {
     id: "meditator",
@@ -89,6 +125,12 @@ export const results: Record<string, Result> = {
       "아침 기상 직후 5분부터",
       "호흡에만 집중하는 연습",
     ],
+    tmi: {
+      song: "Marconi Union - Weightless",
+      movie: "먹고 기도하고 사랑하라",
+      gift: "아로마 디퓨저",
+    },
+    quote: "지금 이 순간에 집중하자",
   },
 
   // 재정 계열
@@ -104,6 +146,12 @@ export const results: Record<string, Result> = {
       "지출 내역 기록하기",
       "무지출 챌린지 도전",
     ],
+    tmi: {
+      song: "ABBA - Money Money Money",
+      movie: "국가부도의 날",
+      gift: "가계부 다이어리",
+    },
+    quote: "부자는 하루아침에 되는 게 아니야",
   },
   investor: {
     id: "investor",
@@ -117,6 +165,12 @@ export const results: Record<string, Result> = {
       "모의투자로 연습하기",
       "투자 관련 책 3권 읽기",
     ],
+    tmi: {
+      song: "Kanye West - Stronger",
+      movie: "빅쇼트",
+      gift: "경제 베스트셀러",
+    },
+    quote: "투자의 첫걸음은 공부다",
   },
 
   // 자기계발 계열
@@ -132,6 +186,12 @@ export const results: Record<string, Result> = {
       "D-day 설정하고 역산하기",
       "스터디 그룹 찾기",
     ],
+    tmi: {
+      song: "아이유 - 에잇",
+      movie: "위플래쉬",
+      gift: "노이즈캔슬링 헤드폰",
+    },
+    quote: "배움에는 끝이 없다",
   },
   linguist: {
     id: "linguist",
@@ -145,6 +205,12 @@ export const results: Record<string, Result> = {
       "좋아하는 콘텐츠 원어로 보기",
       "하루 단어 5개씩 암기",
     ],
+    tmi: {
+      song: "Luis Fonsi - Despacito",
+      movie: "어라이벌",
+      gift: "언어학습 앱 구독권",
+    },
+    quote: "새 언어는 새 인생이다",
   },
   reader: {
     id: "reader",
@@ -158,6 +224,12 @@ export const results: Record<string, Result> = {
       "독서 모임 가입하기",
       "읽고 싶은 책 리스트 만들기",
     ],
+    tmi: {
+      song: "10cm - 봄이 좋냐",
+      movie: "노팅힐",
+      gift: "북스탠드 & 독서등",
+    },
+    quote: "책 한 권이 인생을 바꾼다",
   },
 
   // 사회/관계 계열
@@ -173,6 +245,12 @@ export const results: Record<string, Result> = {
       "생일 캘린더 등록하기",
       "작은 선물 준비해두기",
     ],
+    tmi: {
+      song: "Bruno Mars - Count on Me",
+      movie: "기생충",
+      gift: "보드게임 세트",
+    },
+    quote: "좋은 친구는 인생 최고의 선물",
   },
   volunteer: {
     id: "volunteer",
@@ -186,6 +264,12 @@ export const results: Record<string, Result> = {
       "월 1회부터 시작",
       "기부 습관 들이기",
     ],
+    tmi: {
+      song: "Michael Jackson - Heal the World",
+      movie: "원더",
+      gift: "기부 영수증 모음집",
+    },
+    quote: "작은 나눔이 세상을 바꾼다",
   },
 
   // 경험/모험 계열
@@ -201,6 +285,12 @@ export const results: Record<string, Result> = {
       "여행 적금 시작하기",
       "휴가 미리 계획하기",
     ],
+    tmi: {
+      song: "Coldplay - Adventure of a Lifetime",
+      movie: "월터의 상상은 현실이 된다",
+      gift: "여행용 캐리어",
+    },
+    quote: "여행은 살아있다는 증거",
   },
   adventurer: {
     id: "adventurer",
@@ -214,6 +304,12 @@ export const results: Record<string, Result> = {
       "두려운 것부터 도전",
       "매달 새로운 거 하나씩",
     ],
+    tmi: {
+      song: "Imagine Dragons - Believer",
+      movie: "예스맨",
+      gift: "체험 이용권 (스카이다이빙, 서핑 등)",
+    },
+    quote: "실패해도 괜찮아, 시도가 용기다",
   },
   hobbyist: {
     id: "hobbyist",
@@ -227,6 +323,12 @@ export const results: Record<string, Result> = {
       "유튜브로 취미 찾아보기",
       "취미 용품은 중고로 시작",
     ],
+    tmi: {
+      song: "Pharrell Williams - Happy",
+      movie: "줄리 & 줄리아",
+      gift: "원데이클래스 이용권",
+    },
+    quote: "덕업일치가 최고의 인생",
   },
 
   // 창작/표현 계열
@@ -242,6 +344,12 @@ export const results: Record<string, Result> = {
       "일주일에 1개 업로드 목표",
       "완벽보다 일단 시작",
     ],
+    tmi: {
+      song: "Daft Punk - Get Lucky",
+      movie: "쿠키런: 킹덤 (Behind Story)",
+      gift: "조명 & 마이크 세트",
+    },
+    quote: "세상에 너의 이야기를 들려줘",
   },
   writer: {
     id: "writer",
@@ -255,6 +363,12 @@ export const results: Record<string, Result> = {
       "감사한 것 3가지 적기",
       "예쁜 노트나 앱 준비",
     ],
+    tmi: {
+      song: "이적 - 걱정말아요 그대",
+      movie: "미드나잇 인 파리",
+      gift: "만년필 세트",
+    },
+    quote: "오늘의 기록이 내일의 나를 만든다",
   },
 
   // 라이프스타일 계열
@@ -270,6 +384,12 @@ export const results: Record<string, Result> = {
       "밀프렙으로 시간 절약",
       "요리 유튜브 구독하기",
     ],
+    tmi: {
+      song: "백예린 - 그건 아마 우리의 잘못은 아닐 거야",
+      movie: "리틀 포레스트",
+      gift: "에어프라이어",
+    },
+    quote: "집밥이 최고의 보약",
   },
   chillmaster: {
     id: "chillmaster",
@@ -283,12 +403,23 @@ export const results: Record<string, Result> = {
       "SNS 디톡스 해보기",
       "아무것도 안 해도 OK",
     ],
+    tmi: {
+      song: "잔나비 - 봄이 좋냐",
+      movie: "어바웃 타임",
+      gift: "안마기 or 입욕제",
+    },
+    quote: "쉬는 것도 실력이다",
   },
 };
 
 // 스코어 기반 결과 계산
 export interface ScoreMap {
   [key: string]: number;
+}
+
+export interface CalculatedResult {
+  main: Result;
+  sub: Result | null;
 }
 
 export function calculateResult(scores: ScoreMap): Result {
@@ -304,6 +435,21 @@ export function calculateResult(scores: ScoreMap): Result {
   }
 
   return results[resultType];
+}
+
+export function calculateResultWithSub(scores: ScoreMap): CalculatedResult {
+  // 점수순으로 정렬
+  const sortedTypes = Object.entries(scores)
+    .filter(([type]) => results[type])
+    .sort((a, b) => b[1] - a[1]);
+
+  const mainType = sortedTypes[0]?.[0] || "chillmaster";
+  const subType = sortedTypes[1]?.[0];
+
+  return {
+    main: results[mainType],
+    sub: subType && subType !== mainType ? results[subType] : null,
+  };
 }
 
 // 카테고리별 그룹핑 (나중에 활용 가능)

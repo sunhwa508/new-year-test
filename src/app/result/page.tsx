@@ -10,10 +10,10 @@ export default function ResultPage() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const savedTypes = localStorage.getItem("quizTypes");
-    if (savedTypes) {
-      const types = JSON.parse(savedTypes);
-      const calculatedResult = calculateResult(types);
+    const savedScores = localStorage.getItem("quizScores");
+    if (savedScores) {
+      const scores = JSON.parse(savedScores);
+      const calculatedResult = calculateResult(scores);
       setResult(calculatedResult);
       trackQuizComplete(calculatedResult.id);
     }

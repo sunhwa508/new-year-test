@@ -3,23 +3,28 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
+import { ScoreMap } from "@/data/results";
 
 export default function QuizPage() {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [scores, setScores] = useState<ScoreMap>({});
 
   const question = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
-  const handleAnswer = (types: string[]) => {
-    const newTypes = [...selectedTypes, ...types];
-    setSelectedTypes(newTypes);
+  const handleAnswer = (answerScores: { [type: string]: number }) => {
+    // 기존 점수에 새 점수 더하기
+    const newScores = { ...scores };
+    for (const [type, score] of Object.entries(answerScores)) {
+      newScores[type] = (newScores[type] || 0) + score;
+    }
+    setScores(newScores);
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      localStorage.setItem("quizTypes", JSON.stringify(newTypes));
+      localStorage.setItem("quizScores", JSON.stringify(newScores));
       router.push("/result");
     }
   };
@@ -50,7 +55,7 @@ export default function QuizPage() {
           {question.answers.map((answer) => (
             <button
               key={answer.id}
-              onClick={() => handleAnswer(answer.type)}
+              onClick={() => handleAnswer(answer.scores)}
               className="w-full p-4 text-left bg-white border border-stone-200 hover:border-stone-900 rounded-xl transition-colors duration-200 text-stone-700 hover:text-stone-900 font-medium"
             >
               {answer.text}

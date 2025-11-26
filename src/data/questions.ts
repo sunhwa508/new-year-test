@@ -1,112 +1,326 @@
+export interface Answer {
+  id: string;
+  text: string;
+  scores: { [type: string]: number };
+}
+
 export interface Question {
   id: number;
   question: string;
-  answers: {
-    id: string;
-    text: string;
-    type: string[];
-  }[];
+  answers: Answer[];
 }
 
 export const questions: Question[] = [
   {
     id: 1,
-    question: "주말 아침, 눈 떴을 때 제일 먼저 하고 싶은 건?",
+    question: "아침에 눈 뜨자마자 제일 먼저 하는 건?",
     answers: [
-      { id: "1a", text: "이불 속에서 유튜브 정주행", type: ["healing", "chill"] },
-      { id: "1b", text: "일단 커피부터 내리기", type: ["realistic", "routine"] },
-      { id: "1c", text: "밀린 집안일 해치우기", type: ["godsaeng", "realistic"] },
-      { id: "1d", text: "밖으로 나가서 공기 마시기", type: ["adventure", "health"] },
+      {
+        id: "1a",
+        text: "알람 끄고 5분만 더...",
+        scores: { chillmaster: 3, earlybird: -1 },
+      },
+      {
+        id: "1b",
+        text: "바로 일어나서 물 한 잔",
+        scores: { godsaeng: 3, health: 2, earlybird: 2 },
+      },
+      {
+        id: "1c",
+        text: "침대에서 SNS 확인",
+        scores: { creator: 1, chillmaster: 2 },
+      },
+      {
+        id: "1d",
+        text: "오늘 할 일 머릿속으로 정리",
+        scores: { godsaeng: 2, learner: 2, minimalist: 1 },
+      },
     ],
   },
   {
     id: 2,
-    question: '친구가 갑자기 "다음 주 제주도 갈래?" 하면?',
+    question: "요즘 가장 신경 쓰이는 건?",
     answers: [
-      { id: "2a", text: '"당장 비행기 검색해"', type: ["adventure", "travel"] },
-      { id: "2b", text: '"일정 확인하고 알려줄게"', type: ["realistic", "routine"] },
-      { id: "2c", text: '"나 돈 없어..."', type: ["saving", "realistic"] },
-      { id: "2d", text: '"집에서 쉬고 싶은데"', type: ["healing", "chill"] },
+      {
+        id: "2a",
+        text: "통장 잔고가 걱정돼",
+        scores: { saver: 3, investor: 2 },
+      },
+      {
+        id: "2b",
+        text: "체력이 예전 같지 않아",
+        scores: { health: 3, dieter: 2, meditator: 1 },
+      },
+      {
+        id: "2c",
+        text: "뭔가 발전이 없는 느낌",
+        scores: { learner: 3, linguist: 2, adventurer: 2 },
+      },
+      {
+        id: "2d",
+        text: "인간관계가 소홀해진 것 같아",
+        scores: { connector: 3, volunteer: 2 },
+      },
     ],
   },
   {
     id: 3,
-    question: "새해 다짐하면 떠오르는 감정은?",
+    question: "주말에 갑자기 하루가 비면?",
     answers: [
-      { id: "3a", text: "설렘 (올해는 진짜 해볼 거야!)", type: ["adventure", "growth"] },
-      { id: "3b", text: "걱정 (또 작심삼일 할까봐)", type: ["realistic", "healing"] },
-      { id: "3c", text: "귀찮음 (그냥 평소대로 살지 뭐)", type: ["chill", "healing"] },
-      { id: "3d", text: "의욕 (리스트 작성 시작!)", type: ["godsaeng", "growth"] },
+      {
+        id: "3a",
+        text: "집에서 넷플릭스 정주행",
+        scores: { chillmaster: 3, homechef: 1 },
+      },
+      {
+        id: "3b",
+        text: "밀린 집안일 처리",
+        scores: { minimalist: 3, godsaeng: 2 },
+      },
+      {
+        id: "3c",
+        text: "못 만났던 친구 연락",
+        scores: { connector: 3, traveler: 1 },
+      },
+      {
+        id: "3d",
+        text: "뭔가 새로운 거 해보고 싶어",
+        scores: { adventurer: 3, hobbyist: 2, creator: 1 },
+      },
     ],
   },
   {
     id: 4,
-    question: "회사/학교 끝나고 나만의 시간이 2시간 생기면?",
+    question: "돈을 쓸 때 나는?",
     answers: [
-      { id: "4a", text: "넷플릭스 or 게임", type: ["healing", "chill"] },
-      { id: "4b", text: "운동이나 산책", type: ["health", "godsaeng"] },
-      { id: "4c", text: "밀린 공부나 자기개발", type: ["growth", "godsaeng"] },
-      { id: "4d", text: "친구 만나기", type: ["relationship", "adventure"] },
+      {
+        id: "4a",
+        text: "일단 사고 후회는 나중에",
+        scores: { adventurer: 2, traveler: 2, chillmaster: 1 },
+      },
+      {
+        id: "4b",
+        text: "가격 비교 필수, 할인 필수",
+        scores: { saver: 3, minimalist: 2 },
+      },
+      {
+        id: "4c",
+        text: "경험에는 아끼지 않아",
+        scores: { traveler: 3, adventurer: 2, hobbyist: 2 },
+      },
+      {
+        id: "4d",
+        text: "미래를 위해 투자한다 생각해",
+        scores: { investor: 3, learner: 2 },
+      },
     ],
   },
   {
     id: 5,
-    question: "SNS에서 제일 많이 보는 콘텐츠는?",
+    question: "운동에 대한 솔직한 생각은?",
     answers: [
-      { id: "5a", text: "맛집/카페/여행", type: ["travel", "adventure"] },
-      { id: "5b", text: "자기개발/동기부여", type: ["growth", "godsaeng"] },
-      { id: "5c", text: "웃긴 영상/밈", type: ["chill", "healing"] },
-      { id: "5d", text: "취미 관련 (운동, 요리, 게임 등)", type: ["health", "growth"] },
+      {
+        id: "5a",
+        text: "해야 하는데... 내일부터",
+        scores: { health: 1, chillmaster: 2, dieter: 1 },
+      },
+      {
+        id: "5b",
+        text: "이미 꾸준히 하고 있어",
+        scores: { health: 3, godsaeng: 2 },
+      },
+      {
+        id: "5c",
+        text: "산책 정도면 충분하지 않아?",
+        scores: { meditator: 2, chillmaster: 2 },
+      },
+      {
+        id: "5d",
+        text: "같이 할 사람 있으면 할 텐데",
+        scores: { connector: 2, health: 1, hobbyist: 1 },
+      },
     ],
   },
   {
     id: 6,
-    question: "통장 잔고 확인할 때 기분은?",
+    question: "요즘 관심 가는 콘텐츠는?",
     answers: [
-      { id: "6a", text: "자주 확인함 (관리 철저)", type: ["saving", "godsaeng"] },
-      { id: "6b", text: "가끔 확인함 (대충 파악)", type: ["realistic", "chill"] },
-      { id: "6c", text: "무서워서 안 봄", type: ["adventure", "chill"] },
-      { id: "6d", text: "잔고가 뭐예요? (카드값만 나가면 됨)", type: ["adventure", "travel"] },
+      {
+        id: "6a",
+        text: "자기계발 / 동기부여 영상",
+        scores: { godsaeng: 2, learner: 3, investor: 1 },
+      },
+      {
+        id: "6b",
+        text: "여행 / 맛집 브이로그",
+        scores: { traveler: 3, homechef: 2, adventurer: 1 },
+      },
+      {
+        id: "6c",
+        text: "웃긴 영상 / 밈",
+        scores: { chillmaster: 3, creator: 1 },
+      },
+      {
+        id: "6d",
+        text: "취미 / 하우투 영상",
+        scores: { hobbyist: 3, creator: 2, homechef: 1 },
+      },
     ],
   },
   {
     id: 7,
-    question: "새로운 걸 시작할 때 나는?",
+    question: "스트레스 받으면 어떻게 풀어?",
     answers: [
-      { id: "7a", text: "일단 지르고 본다", type: ["adventure", "travel"] },
-      { id: "7b", text: "유튜브로 정보 수집부터", type: ["realistic", "growth"] },
-      { id: "7c", text: "주변에 해본 사람 찾기", type: ["relationship", "realistic"] },
-      { id: "7d", text: "생각만 하다가 흐지부지", type: ["chill", "healing"] },
+      {
+        id: "7a",
+        text: "맛있는 거 먹기",
+        scores: { homechef: 2, dieter: -1, chillmaster: 2 },
+      },
+      {
+        id: "7b",
+        text: "운동하거나 산책",
+        scores: { health: 3, meditator: 2 },
+      },
+      {
+        id: "7c",
+        text: "친구한테 연락해서 수다",
+        scores: { connector: 3, chillmaster: 1 },
+      },
+      {
+        id: "7d",
+        text: "혼자만의 시간 갖기",
+        scores: { meditator: 3, reader: 2, writer: 2 },
+      },
     ],
   },
   {
     id: 8,
-    question: "지금 내 방 상태는?",
+    question: "새로운 걸 시작할 때 나는?",
     answers: [
-      { id: "8a", text: "깔끔 그 자체", type: ["godsaeng", "routine"] },
-      { id: "8b", text: "나만 아는 정리 상태", type: ["realistic", "chill"] },
-      { id: "8c", text: "좀... 어지럽긴 해", type: ["chill", "healing"] },
-      { id: "8d", text: "창작의 혼돈", type: ["adventure", "growth"] },
+      {
+        id: "8a",
+        text: "일단 질러! 생각은 나중에",
+        scores: { adventurer: 3, traveler: 2, hobbyist: 2 },
+      },
+      {
+        id: "8b",
+        text: "유튜브로 정보 수집부터",
+        scores: { learner: 2, reader: 2, investor: 1 },
+      },
+      {
+        id: "8c",
+        text: "해본 사람한테 물어봐",
+        scores: { connector: 2, hobbyist: 1 },
+      },
+      {
+        id: "8d",
+        text: "계획 세우고 차근차근",
+        scores: { godsaeng: 3, minimalist: 2, saver: 1 },
+      },
     ],
   },
   {
     id: 9,
-    question: "운동에 대한 내 생각은?",
+    question: "1년 후 나에게 바라는 건?",
     answers: [
-      { id: "9a", text: "이미 하고 있음 (꾸준히)", type: ["health", "godsaeng"] },
-      { id: "9b", text: "해야 하는데... (마음의 빚)", type: ["realistic", "growth"] },
-      { id: "9c", text: "산책이면 충분해", type: ["healing", "health"] },
-      { id: "9d", text: "움직이는 거 싫어", type: ["chill", "healing"] },
+      {
+        id: "9a",
+        text: "돈 좀 모아놨으면",
+        scores: { saver: 3, investor: 3 },
+      },
+      {
+        id: "9b",
+        text: "건강하게 잘 지냈으면",
+        scores: { health: 3, dieter: 2, meditator: 2 },
+      },
+      {
+        id: "9c",
+        text: "새로운 경험 많이 했으면",
+        scores: { traveler: 3, adventurer: 3, hobbyist: 2 },
+      },
+      {
+        id: "9d",
+        text: "뭔가 하나라도 이뤘으면",
+        scores: { learner: 3, creator: 2, godsaeng: 2 },
+      },
     ],
   },
   {
     id: 10,
-    question: "올해 가장 후회되는 건?",
+    question: "지금 방 상태를 솔직하게 말하면?",
     answers: [
-      { id: "10a", text: "돈을 너무 많이 썼다", type: ["saving", "realistic"] },
-      { id: "10b", text: "하고 싶은 걸 못 했다", type: ["adventure", "travel"] },
-      { id: "10c", text: "건강 관리를 못 했다", type: ["health", "godsaeng"] },
-      { id: "10d", text: "딱히 없음 (잘 살았어)", type: ["chill", "healing"] },
+      {
+        id: "10a",
+        text: "깔끔 그 자체",
+        scores: { minimalist: 3, godsaeng: 2 },
+      },
+      {
+        id: "10b",
+        text: "나만 아는 정리 상태",
+        scores: { creator: 1, chillmaster: 2 },
+      },
+      {
+        id: "10c",
+        text: "좀... 어지럽긴 해",
+        scores: { adventurer: 1, chillmaster: 2 },
+      },
+      {
+        id: "10d",
+        text: "창작의 혼돈 (물건이 많음)",
+        scores: { creator: 2, hobbyist: 2, minimalist: -2 },
+      },
+    ],
+  },
+  {
+    id: 11,
+    question: "SNS는 어떻게 쓰고 있어?",
+    answers: [
+      {
+        id: "11a",
+        text: "거의 안 해 / 눈팅만",
+        scores: { meditator: 2, reader: 2, minimalist: 2 },
+      },
+      {
+        id: "11b",
+        text: "일상 공유 자주 해",
+        scores: { creator: 3, connector: 2 },
+      },
+      {
+        id: "11c",
+        text: "정보 수집용으로만",
+        scores: { learner: 2, investor: 2, traveler: 1 },
+      },
+      {
+        id: "11d",
+        text: "콘텐츠 만들어서 올려",
+        scores: { creator: 3, writer: 2, hobbyist: 1 },
+      },
+    ],
+  },
+  {
+    id: 12,
+    question: "솔직히 올해 가장 후회되는 건?",
+    answers: [
+      {
+        id: "12a",
+        text: "돈을 너무 많이 썼다",
+        scores: { saver: 3, investor: 2, minimalist: 1 },
+      },
+      {
+        id: "12b",
+        text: "건강 관리를 못 했다",
+        scores: { health: 3, dieter: 3, earlybird: 2 },
+      },
+      {
+        id: "12c",
+        text: "하고 싶은 걸 못 했다",
+        scores: { adventurer: 3, traveler: 2, hobbyist: 2, creator: 1 },
+      },
+      {
+        id: "12d",
+        text: "딱히 없음 (잘 살았어)",
+        scores: { chillmaster: 3, meditator: 2 },
+      },
     ],
   },
 ];

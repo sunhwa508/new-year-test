@@ -22,7 +22,7 @@ export const questions: Question[] = [
       },
       {
         id: "1b",
-        text: "바로 일어나서 물 한 잔",
+        text: "일어나서 커피 한 잔",
         scores: { godsaeng: 3, health: 2, earlybird: 2 },
       },
       {

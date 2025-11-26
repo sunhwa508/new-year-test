@@ -21,7 +21,7 @@ export default function ResultPage() {
 
   const handleShare = async () => {
     const shareUrl = window.location.origin;
-    const shareText = `나는 ${result?.emoji}${result?.title}! 새해 목표는 "${result?.goal}"래. 너는 무슨 형이야?`;
+    const shareText = `나는 [${result?.title}]! 새해 목표는 "${result?.goal}"래. 너는 무슨 형이야?`;
 
     if (navigator.share) {
       try {
@@ -58,8 +58,7 @@ export default function ResultPage() {
         {/* Result Type - Hero */}
         <div className="text-center mb-8">
           <p className="text-stone-400 text-sm mb-3">당신의 유형은</p>
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-stone-900 text-white rounded-full">
-            <span className="text-2xl">{result.emoji}</span>
+          <div className="inline-block px-6 py-3 bg-stone-900 text-white rounded-full">
             <span className="text-xl font-bold">{result.title}</span>
           </div>
         </div>

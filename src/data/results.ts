@@ -15,7 +15,7 @@ export const results: Record<string, Result> = {
     title: "갓생러",
     goal: "미라클 모닝 30일 챌린지",
     description: "루틴의 힘을 아는 사람. 아침을 지배하면 하루를 지배한다는 걸 알잖아.",
-    emoji: "🌅",
+    emoji: "",
     color: "#FF6B6B",
     tips: [
       "알람 3개 세팅하기",
@@ -28,7 +28,7 @@ export const results: Record<string, Result> = {
     title: "얼리버드",
     goal: "밤 12시 전에 자기",
     description: "일찍 자고 일찍 일어나는 게 답이라는 걸 알면서도 안 되지? 올해는 진짜로.",
-    emoji: "🐦",
+    emoji: "",
     color: "#FFA07A",
     tips: [
       "저녁 9시 이후 카페인 금지",
@@ -41,7 +41,7 @@ export const results: Record<string, Result> = {
     title: "미니멀리스트",
     goal: "한 달에 10개씩 버리기",
     description: "물건이 적으면 마음도 가벼워져. 진짜 필요한 것만 남기는 한 해.",
-    emoji: "🧹",
+    emoji: "",
     color: "#A0AEC0",
     tips: [
       "1년 안 쓴 물건 과감히 정리",
@@ -56,7 +56,7 @@ export const results: Record<string, Result> = {
     title: "헬스인",
     goal: "주 3회 운동 습관 만들기",
     description: "건강이 최고의 재산. 거창하지 않아도 돼, 꾸준함이 답이야.",
-    emoji: "💪",
+    emoji: "",
     color: "#48BB78",
     tips: [
       "좋아하는 운동 찾기",
@@ -69,7 +69,7 @@ export const results: Record<string, Result> = {
     title: "다이어터",
     goal: "건강한 식습관 만들기",
     description: "무리한 다이어트 말고, 지속 가능한 건강한 식단. 천천히 가자.",
-    emoji: "🥗",
+    emoji: "",
     color: "#68D391",
     tips: [
       "물 하루 2리터 마시기",
@@ -82,7 +82,7 @@ export const results: Record<string, Result> = {
     title: "명상러",
     goal: "하루 10분 마음 챙김",
     description: "바쁜 일상 속 나를 돌아보는 시간. 마음의 평화가 모든 것의 시작이야.",
-    emoji: "🧘",
+    emoji: "",
     color: "#9F7AEA",
     tips: [
       "명상 앱 설치하기",
@@ -97,7 +97,7 @@ export const results: Record<string, Result> = {
     title: "저축왕",
     goal: "매달 10만원 저축하기",
     description: "티끌 모아 태산. 작지만 확실한 성취감. 연말엔 뿌듯한 통장을 보게 될 거야.",
-    emoji: "🐷",
+    emoji: "",
     color: "#F6AD55",
     tips: [
       "자동이체 설정하기",
@@ -110,7 +110,7 @@ export const results: Record<string, Result> = {
     title: "재테커",
     goal: "투자 공부 시작하기",
     description: "돈이 일하게 만드는 법을 배울 때. 작은 금액부터 시작해보자.",
-    emoji: "📈",
+    emoji: "",
     color: "#4FD1C5",
     tips: [
       "경제 뉴스 매일 1개씩 읽기",
@@ -125,7 +125,7 @@ export const results: Record<string, Result> = {
     title: "공부벌레",
     goal: "자격증 하나 따기",
     description: "성장하는 내가 좋잖아. 확실한 결과물을 만들어보는 한 해.",
-    emoji: "📚",
+    emoji: "",
     color: "#4299E1",
     tips: [
       "관심 있는 자격증 알아보기",
@@ -138,7 +138,7 @@ export const results: Record<string, Result> = {
     title: "언어러너",
     goal: "외국어 하나 시작하기",
     description: "새로운 언어는 새로운 세계. 매일 10분이면 1년 후엔 달라져 있을 거야.",
-    emoji: "🌍",
+    emoji: "",
     color: "#667EEA",
     tips: [
       "언어 학습 앱 매일 알림",
@@ -151,7 +151,7 @@ export const results: Record<string, Result> = {
     title: "독서가",
     goal: "한 달에 책 2권 읽기",
     description: "독서는 마음의 양식. 바쁜 일상에서도 책 한 권의 여유를 가져보자.",
-    emoji: "📖",
+    emoji: "",
     color: "#805AD5",
     tips: [
       "출퇴근 시간 활용하기",
@@ -166,7 +166,7 @@ export const results: Record<string, Result> = {
     title: "인싸형",
     goal: "한 달에 친구 한 명 만나기",
     description: "관계가 곧 행복. 바쁘다는 핑계 대지 말고 먼저 연락해봐.",
-    emoji: "🤝",
+    emoji: "",
     color: "#ED64A6",
     tips: [
       "연락 안 한 친구 리스트 만들기",
@@ -179,7 +179,7 @@ export const results: Record<string, Result> = {
     title: "선행러",
     goal: "봉사활동 시작하기",
     description: "나눔은 받는 것보다 주는 기쁨이 더 커. 작은 것부터 시작해보자.",
-    emoji: "🤲",
+    emoji: "",
     color: "#FC8181",
     tips: [
       "관심 분야 봉사 찾아보기",
@@ -194,7 +194,7 @@ export const results: Record<string, Result> = {
     title: "여행러",
     goal: "새로운 곳 3군데 가기",
     description: "경험이 너를 만든다. 익숙한 곳을 벗어나 새로운 나를 만나봐.",
-    emoji: "✈️",
+    emoji: "",
     color: "#38B2AC",
     tips: [
       "버킷리스트 여행지 정하기",
@@ -207,7 +207,7 @@ export const results: Record<string, Result> = {
     title: "도전러",
     goal: "해본 적 없는 것 5개 해보기",
     description: "안전지대 밖으로! 실패해도 괜찮아, 경험이 남으니까.",
-    emoji: "🎯",
+    emoji: "",
     color: "#F56565",
     tips: [
       "버킷리스트 작성하기",
@@ -220,7 +220,7 @@ export const results: Record<string, Result> = {
     title: "취미부자",
     goal: "새 취미 3개 시작하기",
     description: "일만 하다 지치지 말고, 나를 위한 시간을 가져봐.",
-    emoji: "🎨",
+    emoji: "",
     color: "#ED8936",
     tips: [
       "원데이클래스 체험하기",
@@ -235,7 +235,7 @@ export const results: Record<string, Result> = {
     title: "크리에이터",
     goal: "콘텐츠 만들기 시작",
     description: "네 안의 창작 욕구를 풀어봐. 블로그든 유튜브든 뭐든 시작이 반이야.",
-    emoji: "🎬",
+    emoji: "",
     color: "#E53E3E",
     tips: [
       "관심 분야 정하기",
@@ -248,7 +248,7 @@ export const results: Record<string, Result> = {
     title: "글쓰는사람",
     goal: "매일 일기 쓰기",
     description: "기록은 기억을 이긴다. 하루를 정리하며 나를 돌아보는 시간.",
-    emoji: "✍️",
+    emoji: "",
     color: "#2D3748",
     tips: [
       "잠들기 전 3줄 일기",
@@ -263,7 +263,7 @@ export const results: Record<string, Result> = {
     title: "집밥러",
     goal: "주 3회 집밥 해먹기",
     description: "배달음식 줄이고 건강한 한 끼. 요리 실력은 덤이야.",
-    emoji: "🍳",
+    emoji: "",
     color: "#DD6B20",
     tips: [
       "간단한 레시피부터 시작",
@@ -276,7 +276,7 @@ export const results: Record<string, Result> = {
     title: "워라밸러",
     goal: "제대로 쉬는 법 배우기",
     description: "쉬는 것도 능력이야. 죄책감 없이 푹 쉬어도 괜찮아.",
-    emoji: "🛋️",
+    emoji: "",
     color: "#718096",
     tips: [
       "주말 하루는 완전 휴식",

@@ -68,7 +68,7 @@ export default function ResultPage() {
         <div className="text-center mb-6">
           <p className="text-stone-400 text-sm mb-1">새해 목표</p>
           <h1 className="text-2xl font-black text-stone-900">
-            &ldquo;{result.goal}&rdquo;
+            &quot;{result.goal}&quot;
           </h1>
         </div>
 

@@ -187,7 +187,7 @@ function ResultContent() {
           {/* 내년에 나에게 어울리는 */}
           <div className="bg-white border border-stone-200 rounded-xl p-5">
             <h3 className="font-bold text-stone-900 mb-3">
-              내년에 나에게 어울리는
+              2026년에 나에게 어울리는
             </h3>
             <div className="space-y-3 text-sm">
               <div>

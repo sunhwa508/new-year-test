@@ -54,26 +54,6 @@ export const results: Record<string, Result> = {
     },
     quote: "잠이 보약이라는 말, 과학임",
   },
-  minimalist: {
-    id: "minimalist",
-    title: "미니멀리스트",
-    goal: "한 달에 10개씩 버리기",
-    description: "이미 정리의 달인인 너. 올해는 삶 전체를 더 심플하게 만들어보자!",
-    emoji: "",
-    color: "#A0AEC0",
-    tips: [
-      "디지털 미니멀리즘도 도전 (앱, 파일 정리)",
-      "물건 대신 경험에 투자하기",
-      "미니멀 라이프 콘텐츠로 공유해보기",
-    ],
-    tmi: {
-      song: "혁오 - Wi Fi",
-      movie: "업 인 더 에어 (Up in the Air, 2009)",
-      gift: "무인양품 정리함",
-    },
-    quote: "비울수록 채워지는 게 있다",
-  },
-
   // 건강 계열
   health: {
     id: "health",
@@ -410,6 +390,25 @@ export const results: Record<string, Result> = {
     },
     quote: "쉬는 것도 능력이다",
   },
+  lazybones: {
+    id: "lazybones",
+    title: "나태형",
+    goal: "올해는 좀 덜 미루기",
+    description: "솔직히 귀찮은 거 맞잖아. 올해는 작은 것부터 하나씩 해보자!",
+    emoji: "",
+    color: "#A0AEC0",
+    tips: [
+      "5분만 해보기 챌린지 (시작이 반)",
+      "할 일 3개만 정해서 끝내기",
+      "작은 성취 기록하며 동기부여 얻기",
+    ],
+    tmi: {
+      song: "검정치마 - 기다린 만큼, 더",
+      movie: "월-E (WALL-E, 2008)",
+      gift: "타이머 & 동기부여 포스터",
+    },
+    quote: "내일의 나는 오늘보다 부지런할 거야 (아마도)",
+  },
 };
 
 // 스코어 기반 결과 계산
@@ -454,12 +453,12 @@ export function calculateResultWithSub(scores: ScoreMap): CalculatedResult {
 
 // 카테고리별 그룹핑 (나중에 활용 가능)
 export const resultCategories = {
-  selfcare: ["godsaeng", "earlybird", "minimalist"],
+  selfcare: ["godsaeng", "earlybird"],
   health: ["health", "dieter", "meditator"],
   finance: ["saver", "investor"],
   growth: ["learner", "linguist", "reader"],
   social: ["connector", "volunteer"],
   experience: ["traveler", "adventurer", "hobbyist"],
   creative: ["creator", "writer"],
-  lifestyle: ["homechef", "chillmaster"],
+  lifestyle: ["homechef", "chillmaster", "lazybones"],
 };

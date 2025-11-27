@@ -16,16 +16,25 @@ const getProgressComment = (current: number, total: number): string => {
   return "";
 };
 
+interface AnswerHistory {
+  questionIndex: number;
+  scores: { [type: string]: number };
+}
+
 export default function QuizPage() {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState<ScoreMap>({});
+  const [history, setHistory] = useState<AnswerHistory[]>([]);
 
   const question = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
   const comment = getProgressComment(currentQuestion, questions.length);
 
   const handleAnswer = (answerScores: { [type: string]: number }) => {
+    // 히스토리에 현재 답변 저장
+    setHistory([...history, { questionIndex: currentQuestion, scores: answerScores }]);
+
     // 기존 점수에 새 점수 더하기
     const newScores = { ...scores };
     for (const [type, score] of Object.entries(answerScores)) {
@@ -41,13 +50,44 @@ export default function QuizPage() {
     }
   };
 
+  const handleBack = () => {
+    if (currentQuestion === 0 || history.length === 0) return;
+
+    // 마지막 답변 가져오기
+    const lastAnswer = history[history.length - 1];
+
+    // 점수에서 마지막 답변 점수 빼기
+    const newScores = { ...scores };
+    for (const [type, score] of Object.entries(lastAnswer.scores)) {
+      newScores[type] = (newScores[type] || 0) - score;
+      if (newScores[type] === 0) delete newScores[type];
+    }
+    setScores(newScores);
+
+    // 히스토리에서 마지막 답변 제거
+    setHistory(history.slice(0, -1));
+
+    // 이전 질문으로 이동
+    setCurrentQuestion(currentQuestion - 1);
+  };
+
   return (
     <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Progress */}
         <div className="mb-8">
-          <div className="flex justify-between text-sm mb-2">
-            <span className="text-stone-400">{currentQuestion + 1} / {questions.length}</span>
+          <div className="flex justify-between items-center text-sm mb-2">
+            <div className="flex items-center gap-3">
+              {currentQuestion > 0 && (
+                <button
+                  onClick={handleBack}
+                  className="text-stone-600 hover:text-stone-900 font-medium transition-colors"
+                >
+                  ← 이전
+                </button>
+              )}
+              <span className="text-stone-400">{currentQuestion + 1} / {questions.length}</span>
+            </div>
             <span className="text-stone-500 font-medium">{comment}</span>
           </div>
           <div className="w-full bg-stone-200 rounded-full h-1">

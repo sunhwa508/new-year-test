@@ -1,17 +1,14 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import html2canvas from "html2canvas";
-import { calculateResultWithSub, Result, CalculatedResult } from "@/data/results";
+import { calculateResultWithSub, CalculatedResult } from "@/data/results";
 import { trackQuizComplete, trackShare } from "@/lib/gtag";
 
 export default function ResultPage() {
   const [result, setResult] = useState<CalculatedResult | null>(null);
-  const [isSharing, setIsSharing] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(3);
   const [showResult, setShowResult] = useState(false);
-  const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const savedScores = localStorage.getItem("quizScores");
@@ -38,84 +35,7 @@ export default function ResultPage() {
     }
   }, [result, countdown]);
 
-  // 이미지 다운로드 헬퍼
-  const downloadImage = (canvas: HTMLCanvasElement) => {
-    const link = document.createElement("a");
-    link.download = "my-new-year-goal.png";
-    link.href = canvas.toDataURL("image/png");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    trackShare("download");
-  };
-
-  // 이미지 공유
-  const handleImageShare = async () => {
-    if (!resultRef.current || !result) return;
-
-    setIsSharing(true);
-
-    try {
-      // html2canvas 옵션 강화
-      const canvas = await html2canvas(resultRef.current, {
-        backgroundColor: "#fafaf9",
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-        windowWidth: resultRef.current.scrollWidth,
-        windowHeight: resultRef.current.scrollHeight,
-        onclone: (clonedDoc) => {
-          const clonedElement = clonedDoc.querySelector('[data-capture="true"]');
-          if (clonedElement) {
-            (clonedElement as HTMLElement).style.transform = 'none';
-          }
-        }
-      });
-
-      const shareUrl = window.location.origin;
-      const shareText = `나는 [${result.main.title}]! 새해 목표는 "${result.main.goal}"래. 너는 무슨 형이야?`;
-
-      // blob 생성
-      const blob = await new Promise<Blob | null>((resolve) => {
-        canvas.toBlob((b) => resolve(b), "image/png", 1.0);
-      });
-
-      if (!blob) {
-        throw new Error("Blob 생성 실패");
-      }
-
-      // 모바일에서 파일 공유 시도
-      if (navigator.share && navigator.canShare) {
-        try {
-          const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
-          if (navigator.canShare({ files: [file] })) {
-            await navigator.share({
-              title: "너에게 딱 맞는 새해 목표 찾기",
-              text: shareText,
-              url: shareUrl,
-              files: [file],
-            });
-            trackShare("native_with_image");
-            return;
-          }
-        } catch {
-          // 파일 공유 실패시 다운로드로 폴백
-        }
-      }
-
-      // 파일 공유 불가시 다운로드
-      downloadImage(canvas);
-      alert("이미지가 저장되었습니다!");
-    } catch (error) {
-      console.error("Image share error:", error);
-      alert("이미지 생성에 실패했습니다. 스크린샷을 사용해주세요.");
-    } finally {
-      setIsSharing(false);
-    }
-  };
-
-  // 일반 공유 (텍스트만)
+  // 공유하기
   const handleTextShare = async () => {
     if (!result) return;
 
@@ -176,8 +96,8 @@ export default function ResultPage() {
   return (
     <main className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        {/* Capture Area */}
-        <div ref={resultRef} className="bg-stone-50 p-6 rounded-2xl">
+        {/* Result Area */}
+        <div className="bg-stone-50 p-6 rounded-2xl">
           {/* Result Type - Hero */}
           <div className="text-center mb-6">
             <p className="text-stone-400 text-sm mb-3">당신의 유형은</p>
@@ -244,21 +164,12 @@ export default function ResultPage() {
 
         {/* Buttons */}
         <div className="mt-6">
-          <div className="flex gap-3 mb-3">
-            <button
-              onClick={handleImageShare}
-              disabled={isSharing}
-              className="flex-1 py-4 px-4 bg-stone-900 text-white font-semibold rounded-xl hover:bg-stone-800 transition-colors duration-200 disabled:opacity-50"
-            >
-              {isSharing ? "생성 중..." : "이미지 공유"}
-            </button>
-            <button
-              onClick={handleTextShare}
-              className="flex-1 py-4 px-4 bg-stone-700 text-white font-semibold rounded-xl hover:bg-stone-600 transition-colors duration-200"
-            >
-              링크 공유
-            </button>
-          </div>
+          <button
+            onClick={handleTextShare}
+            className="w-full py-4 px-8 bg-stone-900 text-white font-semibold rounded-xl hover:bg-stone-800 transition-colors duration-200 mb-3"
+          >
+            친구에게 공유하기
+          </button>
 
           <Link
             href="/"

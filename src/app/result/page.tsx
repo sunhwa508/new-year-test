@@ -38,7 +38,8 @@ export default function ResultPage() {
     }
   }, [result, countdown]);
 
-  const handleShare = async () => {
+  // 이미지 공유
+  const handleImageShare = async () => {
     if (!resultRef.current || !result) return;
 
     setIsSharing(true);
@@ -65,15 +66,8 @@ export default function ResultPage() {
           files: [file],
         });
         trackShare("native_with_image");
-      } else if (navigator.share) {
-        await navigator.share({
-          title: "너에게 딱 맞는 새해 목표 찾기",
-          text: shareText,
-          url: shareUrl,
-        });
-        trackShare("native");
       } else {
-        // 데스크톱: 이미지 다운로드
+        // 이미지 다운로드
         const link = document.createElement("a");
         link.download = "my-new-year-goal.png";
         link.href = canvas.toDataURL();
@@ -84,6 +78,36 @@ export default function ResultPage() {
       // User cancelled or error
     } finally {
       setIsSharing(false);
+    }
+  };
+
+  // 일반 공유 (텍스트만)
+  const handleTextShare = async () => {
+    if (!result) return;
+
+    const shareUrl = window.location.origin;
+    const shareText = `나는 [${result.main.title}]! 새해 목표는 "${result.main.goal}"래. 너는 무슨 형이야?`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "너에게 딱 맞는 새해 목표 찾기",
+          text: shareText,
+          url: shareUrl,
+        });
+        trackShare("native_text");
+      } catch {
+        // User cancelled
+      }
+    } else {
+      // 클립보드에 복사
+      try {
+        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+        alert("링크가 복사되었습니다!");
+        trackShare("clipboard");
+      } catch {
+        // Clipboard failed
+      }
     }
   };
 
@@ -168,19 +192,22 @@ export default function ResultPage() {
             </ul>
           </div>
 
-          {/* TMI */}
+          {/* 나에게 어울리는 */}
           <div className="bg-white border border-stone-200 rounded-xl p-5">
-            <h3 className="font-bold text-stone-900 mb-3">TMI</h3>
-            <div className="space-y-2 text-sm">
-              <p className="text-stone-600">
-                <span className="text-stone-400">BGM</span> {mainResult.tmi.song}
-              </p>
-              <p className="text-stone-600">
-                <span className="text-stone-400">Movie</span> {mainResult.tmi.movie}
-              </p>
-              <p className="text-stone-600">
-                <span className="text-stone-400">Gift</span> {mainResult.tmi.gift}
-              </p>
+            <h3 className="font-bold text-stone-900 mb-3">나에게 어울리는</h3>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-stone-400 text-xs mb-1">노래</p>
+                <p className="text-stone-700">{mainResult.tmi.song}</p>
+              </div>
+              <div>
+                <p className="text-stone-400 text-xs mb-1">영화</p>
+                <p className="text-stone-700">{mainResult.tmi.movie}</p>
+              </div>
+              <div>
+                <p className="text-stone-400 text-xs mb-1">새해 선물</p>
+                <p className="text-stone-700">{mainResult.tmi.gift}</p>
+              </div>
             </div>
           </div>
 
@@ -192,13 +219,21 @@ export default function ResultPage() {
 
         {/* Buttons */}
         <div className="mt-6">
-          <button
-            onClick={handleShare}
-            disabled={isSharing}
-            className="w-full py-4 px-8 bg-stone-900 text-white font-semibold rounded-xl hover:bg-stone-800 transition-colors duration-200 mb-3 disabled:opacity-50"
-          >
-            {isSharing ? "이미지 생성 중..." : "결과 이미지 공유하기"}
-          </button>
+          <div className="flex gap-3 mb-3">
+            <button
+              onClick={handleImageShare}
+              disabled={isSharing}
+              className="flex-1 py-4 px-4 bg-stone-900 text-white font-semibold rounded-xl hover:bg-stone-800 transition-colors duration-200 disabled:opacity-50"
+            >
+              {isSharing ? "생성 중..." : "이미지 공유"}
+            </button>
+            <button
+              onClick={handleTextShare}
+              className="flex-1 py-4 px-4 bg-stone-700 text-white font-semibold rounded-xl hover:bg-stone-600 transition-colors duration-200"
+            >
+              링크 공유
+            </button>
+          </div>
 
           <Link
             href="/"

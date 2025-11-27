@@ -56,25 +56,40 @@ export default function ResultPage() {
     setIsSharing(true);
 
     try {
+      // html2canvas 옵션 강화
       const canvas = await html2canvas(resultRef.current, {
         backgroundColor: "#fafaf9",
         scale: 2,
         useCORS: true,
+        allowTaint: true,
         logging: false,
+        windowWidth: resultRef.current.scrollWidth,
+        windowHeight: resultRef.current.scrollHeight,
+        onclone: (clonedDoc) => {
+          const clonedElement = clonedDoc.querySelector('[data-capture="true"]');
+          if (clonedElement) {
+            (clonedElement as HTMLElement).style.transform = 'none';
+          }
+        }
       });
 
       const shareUrl = window.location.origin;
       const shareText = `나는 [${result.main.title}]! 새해 목표는 "${result.main.goal}"래. 너는 무슨 형이야?`;
 
-      // 모바일에서 파일 공유 시도
-      if (navigator.share) {
-        try {
-          const blob = await new Promise<Blob | null>((resolve) => {
-            canvas.toBlob((b) => resolve(b), "image/png");
-          });
+      // blob 생성
+      const blob = await new Promise<Blob | null>((resolve) => {
+        canvas.toBlob((b) => resolve(b), "image/png", 1.0);
+      });
 
-          if (blob && navigator.canShare?.({ files: [new File([blob], "test.png", { type: "image/png" })] })) {
-            const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
+      if (!blob) {
+        throw new Error("Blob 생성 실패");
+      }
+
+      // 모바일에서 파일 공유 시도
+      if (navigator.share && navigator.canShare) {
+        try {
+          const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
+          if (navigator.canShare({ files: [file] })) {
             await navigator.share({
               title: "너에게 딱 맞는 새해 목표 찾기",
               text: shareText,
@@ -94,7 +109,7 @@ export default function ResultPage() {
       alert("이미지가 저장되었습니다!");
     } catch (error) {
       console.error("Image share error:", error);
-      alert("이미지 생성에 실패했습니다. 다시 시도해주세요.");
+      alert("이미지 생성에 실패했습니다. 스크린샷을 사용해주세요.");
     } finally {
       setIsSharing(false);
     }

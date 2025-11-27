@@ -176,7 +176,7 @@ function ResultContent() {
 
           {/* Tips */}
           <div className="bg-white border border-stone-200 rounded-xl p-5 mb-4">
-            <h3 className="font-bold text-stone-900 mb-3">이렇게 시작해봐</h3>
+            <h3 className="font-bold text-stone-900 mb-3">올해는 이렇게 해봐</h3>
             <ul className="space-y-2">
               {mainResult.tips.map((tip, index) => (
                 <li

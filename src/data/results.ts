@@ -412,7 +412,7 @@ export const results: Record<string, Result> = {
   chillmaster: {
     id: "chillmaster",
     title: "워라밸러",
-    goal: "제대로 쉬는 법 배우기",
+    goal: "번아웃 없는 1년 보내기",
     description: "번아웃 오기 전에 미리 쉬자. 죄책감? 그런 거 없음",
     emoji: "",
     color: "#718096",

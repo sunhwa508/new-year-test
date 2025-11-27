@@ -20,7 +20,8 @@ export const results: Record<string, Result> = {
     id: "godsaeng",
     title: "갓생러",
     goal: "미라클 모닝 30일 챌린지",
-    description: "루틴의 힘을 아는 사람. 아침을 지배하면 하루를 지배한다는 걸 알잖아.",
+    description:
+      "루틴의 힘을 아는 사람. 아침을 지배하면 하루를 지배한다는 걸 알잖아.",
     emoji: "",
     color: "#FF6B6B",
     tips: [
@@ -39,7 +40,8 @@ export const results: Record<string, Result> = {
     id: "earlybird",
     title: "얼리버드",
     goal: "밤 12시 전에 자기",
-    description: "일찍 자고 일찍 일어나는 게 답이라는 걸 알면서도 안 되지? 올해는 진짜로.",
+    description:
+      "일찍 자고 일찍 일어나는 게 답이라는 걸 알면서도 안 되지? 올해는 진짜로.",
     emoji: "",
     color: "#FFA07A",
     tips: [
@@ -58,7 +60,8 @@ export const results: Record<string, Result> = {
     id: "minimalist",
     title: "미니멀리스트",
     goal: "한 달에 10개씩 버리기",
-    description: "물건이 적으면 마음도 가벼워져. 진짜 필요한 것만 남기는 한 해.",
+    description:
+      "물건이 적으면 마음도 가벼워져. 진짜 필요한 것만 남기는 한 해.",
     emoji: "",
     color: "#A0AEC0",
     tips: [
@@ -85,14 +88,14 @@ export const results: Record<string, Result> = {
     tips: [
       "좋아하는 운동 찾기",
       "운동 파트너 구하기",
-      "운동복 미리 꺼내두기",
+      "운동복 미리 구매해두기",
     ],
     tmi: {
       song: "Survivor - Eye of the Tiger",
       movie: "록키 (Rocky)",
       gift: "블루투스 이어폰",
     },
-    quote: "오늘 운동 안 하면 내일의 나가 힘들어",
+    quote: "오늘 운동 안 하면 내일의 내가 힘들어",
   },
   dieter: {
     id: "dieter",
@@ -117,7 +120,8 @@ export const results: Record<string, Result> = {
     id: "meditator",
     title: "명상러",
     goal: "하루 10분 마음 챙김",
-    description: "바쁜 일상 속 나를 돌아보는 시간. 마음의 평화가 모든 것의 시작이야.",
+    description:
+      "바쁜 일상 속 나를 돌아보는 시간. 마음의 평화가 모든 것의 시작이야.",
     emoji: "",
     color: "#9F7AEA",
     tips: [
@@ -138,14 +142,11 @@ export const results: Record<string, Result> = {
     id: "saver",
     title: "저축왕",
     goal: "매달 10만원 저축하기",
-    description: "티끌 모아 태산. 작지만 확실한 성취감. 연말엔 뿌듯한 통장을 보게 될 거야.",
+    description:
+      "티끌 모아 태산. 작지만 확실한 성취감. 연말엔 뿌듯한 통장을 보게 될 거야.",
     emoji: "",
     color: "#F6AD55",
-    tips: [
-      "자동이체 설정하기",
-      "지출 내역 기록하기",
-      "무지출 챌린지 도전",
-    ],
+    tips: ["자동이체 설정하기", "지출 내역 기록하기", "무지출 챌린지 도전"],
     tmi: {
       song: "ABBA - Money Money Money",
       movie: "국가부도의 날",
@@ -197,7 +198,8 @@ export const results: Record<string, Result> = {
     id: "linguist",
     title: "언어러너",
     goal: "외국어 하나 시작하기",
-    description: "새로운 언어는 새로운 세계. 매일 10분이면 1년 후엔 달라져 있을 거야.",
+    description:
+      "새로운 언어는 새로운 세계. 매일 10분이면 1년 후엔 달라져 있을 거야.",
     emoji: "",
     color: "#667EEA",
     tips: [
@@ -216,7 +218,8 @@ export const results: Record<string, Result> = {
     id: "reader",
     title: "독서가",
     goal: "한 달에 책 2권 읽기",
-    description: "독서는 마음의 양식. 바쁜 일상에서도 책 한 권의 여유를 가져보자.",
+    description:
+      "독서는 마음의 양식. 바쁜 일상에서도 책 한 권의 여유를 가져보자.",
     emoji: "",
     color: "#805AD5",
     tips: [
@@ -256,14 +259,11 @@ export const results: Record<string, Result> = {
     id: "volunteer",
     title: "선행러",
     goal: "봉사활동 시작하기",
-    description: "나눔은 받는 것보다 주는 기쁨이 더 커. 작은 것부터 시작해보자.",
+    description:
+      "나눔은 받는 것보다 주는 기쁨이 더 커. 작은 것부터 시작해보자.",
     emoji: "",
     color: "#FC8181",
-    tips: [
-      "관심 분야 봉사 찾아보기",
-      "월 1회부터 시작",
-      "기부 습관 들이기",
-    ],
+    tips: ["관심 분야 봉사 찾아보기", "월 1회부터 시작", "기부 습관 들이기"],
     tmi: {
       song: "Michael Jackson - Heal the World",
       movie: "원더",
@@ -336,7 +336,8 @@ export const results: Record<string, Result> = {
     id: "creator",
     title: "크리에이터",
     goal: "콘텐츠 만들기 시작",
-    description: "네 안의 창작 욕구를 풀어봐. 블로그든 유튜브든 뭐든 시작이 반이야.",
+    description:
+      "네 안의 창작 욕구를 풀어봐. 블로그든 유튜브든 뭐든 시작이 반이야.",
     emoji: "",
     color: "#E53E3E",
     tips: [
@@ -358,11 +359,7 @@ export const results: Record<string, Result> = {
     description: "기록은 기억을 이긴다. 하루를 정리하며 나를 돌아보는 시간.",
     emoji: "",
     color: "#2D3748",
-    tips: [
-      "잠들기 전 3줄 일기",
-      "감사한 것 3가지 적기",
-      "예쁜 노트나 앱 준비",
-    ],
+    tips: ["잠들기 전 3줄 일기", "감사한 것 3가지 적기", "예쁜 노트나 앱 준비"],
     tmi: {
       song: "이적 - 걱정말아요 그대",
       movie: "미드나잇 인 파리",
@@ -398,11 +395,7 @@ export const results: Record<string, Result> = {
     description: "쉬는 것도 능력이야. 죄책감 없이 푹 쉬어도 괜찮아.",
     emoji: "",
     color: "#718096",
-    tips: [
-      "주말 하루는 완전 휴식",
-      "SNS 디톡스 해보기",
-      "아무것도 안 해도 OK",
-    ],
+    tips: ["주말 하루는 완전 휴식", "SNS 디톡스 해보기", "아무것도 안 해도 OK"],
     tmi: {
       song: "잔나비 - 봄이 좋냐",
       movie: "어바웃 타임",

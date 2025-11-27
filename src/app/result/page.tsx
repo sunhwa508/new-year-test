@@ -38,6 +38,17 @@ export default function ResultPage() {
     }
   }, [result, countdown]);
 
+  // 이미지 다운로드 헬퍼
+  const downloadImage = (canvas: HTMLCanvasElement) => {
+    const link = document.createElement("a");
+    link.download = "my-new-year-goal.png";
+    link.href = canvas.toDataURL("image/png");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    trackShare("download");
+  };
+
   // 이미지 공유
   const handleImageShare = async () => {
     if (!resultRef.current || !result) return;
@@ -48,34 +59,42 @@ export default function ResultPage() {
       const canvas = await html2canvas(resultRef.current, {
         backgroundColor: "#fafaf9",
         scale: 2,
+        useCORS: true,
+        logging: false,
       });
 
-      const blob = await new Promise<Blob>((resolve) => {
-        canvas.toBlob((b) => resolve(b!), "image/png");
-      });
-
-      const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
       const shareUrl = window.location.origin;
       const shareText = `나는 [${result.main.title}]! 새해 목표는 "${result.main.goal}"래. 너는 무슨 형이야?`;
 
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          title: "너에게 딱 맞는 새해 목표 찾기",
-          text: shareText,
-          url: shareUrl,
-          files: [file],
-        });
-        trackShare("native_with_image");
-      } else {
-        // 이미지 다운로드
-        const link = document.createElement("a");
-        link.download = "my-new-year-goal.png";
-        link.href = canvas.toDataURL();
-        link.click();
-        trackShare("download");
+      // 모바일에서 파일 공유 시도
+      if (navigator.share) {
+        try {
+          const blob = await new Promise<Blob | null>((resolve) => {
+            canvas.toBlob((b) => resolve(b), "image/png");
+          });
+
+          if (blob && navigator.canShare?.({ files: [new File([blob], "test.png", { type: "image/png" })] })) {
+            const file = new File([blob], "my-new-year-goal.png", { type: "image/png" });
+            await navigator.share({
+              title: "너에게 딱 맞는 새해 목표 찾기",
+              text: shareText,
+              url: shareUrl,
+              files: [file],
+            });
+            trackShare("native_with_image");
+            return;
+          }
+        } catch {
+          // 파일 공유 실패시 다운로드로 폴백
+        }
       }
-    } catch {
-      // User cancelled or error
+
+      // 파일 공유 불가시 다운로드
+      downloadImage(canvas);
+      alert("이미지가 저장되었습니다!");
+    } catch (error) {
+      console.error("Image share error:", error);
+      alert("이미지 생성에 실패했습니다. 다시 시도해주세요.");
     } finally {
       setIsSharing(false);
     }

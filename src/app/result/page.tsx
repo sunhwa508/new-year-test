@@ -204,15 +204,6 @@ export default function ResultPage() {
             {mainResult.description}
           </p>
 
-          {/* Sub Type */}
-          {subResult && (
-            <div className="bg-stone-100 rounded-xl p-4 mb-4 text-center">
-              <p className="text-stone-400 text-xs mb-1">숨겨진 부캐</p>
-              <p className="text-stone-700 font-semibold">{subResult.title}</p>
-              <p className="text-stone-500 text-xs mt-1">&quot;{subResult.goal}&quot;</p>
-            </div>
-          )}
-
           {/* Tips */}
           <div className="bg-white border border-stone-200 rounded-xl p-5 mb-4">
             <h3 className="font-bold text-stone-900 mb-3">이렇게 시작해봐</h3>
@@ -226,9 +217,9 @@ export default function ResultPage() {
             </ul>
           </div>
 
-          {/* 나에게 어울리는 */}
+          {/* 내년에 나에게 어울리는 */}
           <div className="bg-white border border-stone-200 rounded-xl p-5">
-            <h3 className="font-bold text-stone-900 mb-3">나에게 어울리는</h3>
+            <h3 className="font-bold text-stone-900 mb-3">내년에 나에게 어울리는</h3>
             <div className="space-y-3 text-sm">
               <div>
                 <p className="text-stone-400 text-xs mb-1">노래</p>

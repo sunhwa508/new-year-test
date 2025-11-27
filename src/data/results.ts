@@ -21,13 +21,13 @@ export const results: Record<string, Result> = {
     title: "갓생러",
     goal: "미라클 모닝 30일 챌린지",
     description:
-      "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감... 알잖아? 아침형 인간 각성 ㄱㄱ",
+      "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감... 알잖아? 아침형 인간 각성 ㄱ",
     emoji: "",
     color: "#FF6B6B",
     tips: [
-      "알람 5분 간격으로 3개 세팅 (도망 불가)",
-      "투두리스트 안 쓰면 하루가 불안한 사람 됨",
-      "아침 루틴 릴스 찍어서 자기 세뇌하기",
+      "알람 5분 간격으로 10개 세팅",
+      "투두리스트 안 쓰면 하루가 불안한 사람이 됨",
+      "아침 루틴 릴스 찍어서 자기 세뇌하기 (필수)",
     ],
     tmi: {
       song: "NewJeans - Super Shy",
@@ -46,7 +46,7 @@ export const results: Record<string, Result> = {
     color: "#FFA07A",
     tips: [
       "저녁 9시 이후 카페인 금지 (커피 대신 루이보스)",
-      "폰 멀리 던져두고 자기 (진심)",
+      "폰 멀리 던져두고 자기 (가능하다면..)",
       "수면 앱 깔아서 강제 수면 모드 ON",
     ],
     tmi: {
@@ -70,7 +70,7 @@ export const results: Record<string, Result> = {
       "당근마켓이 네 친구다",
     ],
     tmi: {
-      song: "혁오 - TOMBOY",
+      song: "(G)아이들 - TOMBOY",
       movie: "버닝",
       gift: "심플한 무지 노트",
     },
@@ -82,14 +82,13 @@ export const results: Record<string, Result> = {
     id: "health",
     title: "헬스인",
     goal: "주 3회 운동 습관 만들기",
-    description:
-      "오운완 안 올리면 운동 안 한 거임 ㅋㅋ 일단 헬스장 등록부터 ㄱㄱ",
+    description: "일단 헬스장 등록부터 ㄱㄱ",
     emoji: "",
     color: "#48BB78",
     tips: [
       "PT 끊어서 강제 출석 유도",
-      "운동 파트너 = 서로 감시하는 관계",
-      "운동복 미리 꺼내두기 (아침에 고민 X)",
+      "운동 파트너 = 서로 감시하는 관계 (오운완 올리기)",
+      "일어나자마지 운동복 미리 꺼내두기",
     ],
     tmi: {
       song: "Dua Lipa - Physical",
@@ -399,9 +398,9 @@ export const results: Record<string, Result> = {
     emoji: "",
     color: "#DD6B20",
     tips: [
-      "간단한 레시피부터 시작 (볶음밥 강추)",
+      "간단한 레시피부터 시작",
       "밀프렙으로 시간 절약",
-      "요리 유튜브 구독 (백종원 선생님 감사합니다)",
+      "요리 유튜브 구독",
     ],
     tmi: {
       song: "백예린 - Square",
@@ -414,12 +413,11 @@ export const results: Record<string, Result> = {
     id: "chillmaster",
     title: "워라밸러",
     goal: "제대로 쉬는 법 배우기",
-    description:
-      "쉬는 것도 능력이야. 번아웃 오기 전에 미리 쉬자. 죄책감? 그런 거 없음",
+    description: "번아웃 오기 전에 미리 쉬자. 죄책감? 그런 거 없음",
     emoji: "",
     color: "#718096",
     tips: [
-      "주말 하루는 완전 휴식 (폰도 내려놓기)",
+      "주말 하루는 완전 휴식",
       "SNS 디톡스 해보기",
       "아무것도 안 해도 OK (진짜임)",
     ],
@@ -428,7 +426,7 @@ export const results: Record<string, Result> = {
       movie: "어바웃 타임",
       gift: "안마기 or 입욕제",
     },
-    quote: "쉬는 것도 실력이다",
+    quote: "쉬는 것도 능력이다",
   },
 };
 

@@ -3,7 +3,11 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { calculateResultWithSub, CalculatedResult, results } from "@/data/results";
+import {
+  calculateResultWithSub,
+  CalculatedResult,
+  results,
+} from "@/data/results";
 import { trackQuizComplete, trackShare } from "@/lib/gtag";
 
 function ResultContent() {
@@ -129,7 +133,9 @@ function ResultContent() {
           <div className="text-8xl font-black text-stone-900 animate-pulse">
             {countdown}
           </div>
-          <p className="text-stone-400 text-sm mt-6">당신의 새해 목표가 공개됩니다</p>
+          <p className="text-stone-400 text-sm mt-6">
+            당신의 새해 목표가 공개됩니다
+          </p>
         </div>
       </main>
     );
@@ -173,7 +179,10 @@ function ResultContent() {
             <h3 className="font-bold text-stone-900 mb-3">이렇게 시작해봐</h3>
             <ul className="space-y-2">
               {mainResult.tips.map((tip, index) => (
-                <li key={index} className="text-stone-600 text-sm flex items-start gap-2">
+                <li
+                  key={index}
+                  className="text-stone-600 text-sm flex items-start gap-2"
+                >
                   <span className="text-stone-400">-</span>
                   {tip}
                 </li>
@@ -183,7 +192,9 @@ function ResultContent() {
 
           {/* 내년에 나에게 어울리는 */}
           <div className="bg-white border border-stone-200 rounded-xl p-5">
-            <h3 className="font-bold text-stone-900 mb-3">내년에 나에게 어울리는</h3>
+            <h3 className="font-bold text-stone-900 mb-3">
+              내년에 나에게 어울리는
+            </h3>
             <div className="space-y-3 text-sm">
               <div>
                 <p className="text-stone-400 text-xs mb-1">노래</p>

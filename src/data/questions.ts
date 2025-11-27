@@ -23,7 +23,7 @@ export const questions: Question[] = [
       {
         id: "1b",
         text: "일어나서 커피 한 잔",
-        scores: { godsaeng: 3, health: 2, earlybird: 2 },
+        scores: { godsaeng: 2, health: 1, earlybird: 2 },
       },
       {
         id: "1c",
@@ -33,7 +33,7 @@ export const questions: Question[] = [
       {
         id: "1d",
         text: "오늘 할 일 머릿속으로 정리",
-        scores: { godsaeng: 2, learner: 2, minimalist: 1 },
+        scores: { godsaeng: 3, learner: 2, minimalist: 1 },
       },
     ],
   },

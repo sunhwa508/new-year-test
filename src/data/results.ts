@@ -21,7 +21,7 @@ export const results: Record<string, Result> = {
     title: "갓생러",
     goal: "미라클 모닝 30일 챌린지",
     description:
-      "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감... 알잖아? 아침형 인간 각성 ㄱ",
+      "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감... 알잖아?\n아침형 인간 각성 ㄱㄱ",
     emoji: "",
     color: "#FF6B6B",
     tips: [
@@ -41,7 +41,7 @@ export const results: Record<string, Result> = {
     title: "얼리버드",
     goal: "밤 12시 전에 자기",
     description:
-      "매일 밤 '오늘은 일찍 자야지' 하고 새벽 2시에 폰 보는 거 국룰임. 올해는 진짜 끊자...",
+      "매일 밤 '오늘은 일찍 자야지' 하고 새벽 2시에 폰 보는 거 국룰임.\n올해는 진짜 끊자...",
     emoji: "",
     color: "#FFA07A",
     tips: [
@@ -61,7 +61,7 @@ export const results: Record<string, Result> = {
     title: "미니멀리스트",
     goal: "한 달에 10개씩 버리기",
     description:
-      "방 정리하면 인생도 정리되는 느낌 알지? 물건 줄이고 마음도 가볍게~",
+      "방 정리하면 인생도 정리되는 느낌 알지?\n물건 줄이고 마음도 가볍게~",
     emoji: "",
     color: "#A0AEC0",
     tips: [
@@ -82,7 +82,8 @@ export const results: Record<string, Result> = {
     id: "health",
     title: "헬스인",
     goal: "주 3회 운동 습관 만들기",
-    description: "일단 헬스장 등록부터 ㄱㄱ",
+    description:
+      "오늘도 내일부터 운동한다고? 일단 헬스장 등록부터 ㄱㄱ\n운동은 시작이 반이다",
     emoji: "",
     color: "#48BB78",
     tips: [
@@ -102,7 +103,7 @@ export const results: Record<string, Result> = {
     title: "다이어터",
     goal: "건강한 식습관 만들기",
     description:
-      "매번 월요일에 시작하는 다이어트... 이번엔 진짜다. 배달앱 삭제 각?",
+      "매번 월요일에 시작하는 다이어트...이번엔 진짜다.\n배달앱 삭제 각?",
     emoji: "",
     color: "#68D391",
     tips: [
@@ -122,7 +123,7 @@ export const results: Record<string, Result> = {
     title: "명상러",
     goal: "하루 10분 마음 챙김",
     description:
-      "머리가 너무 복잡할 때 있잖아... 잠깐 멈추고 숨 좀 쉬자. 번아웃 예방 필수템",
+      "머리가 너무 복잡할 때 있잖아...잠깐 멈추고 숨 좀 쉬자.\n번아웃 예방 필수템",
     emoji: "",
     color: "#9F7AEA",
     tips: [
@@ -143,8 +144,7 @@ export const results: Record<string, Result> = {
     id: "saver",
     title: "저축왕",
     goal: "매달 10만원 저축하기",
-    description:
-      "월급 들어오면 순삭되는 거 국룰이지만... 올해는 좀 모아보자. 티끌 모아 태산이래잖아",
+    description: "월급 들어오면 순삭되는 거 국룰이지만...올해는 좀 모아보자.",
     emoji: "",
     color: "#F6AD55",
     tips: [
@@ -164,7 +164,7 @@ export const results: Record<string, Result> = {
     title: "재테커",
     goal: "투자 공부 시작하기",
     description:
-      "주식? 코인? 부동산? 일단 공부부터 하자. 돈이 일하게 만드는 법 배울 때 됐어",
+      "주식? 코인? 부동산? 일단 공부부터 하자.\n돈이 일하게 만드는 법 배울 때 됐어",
     emoji: "",
     color: "#4FD1C5",
     tips: [
@@ -186,7 +186,7 @@ export const results: Record<string, Result> = {
     title: "공부벌레",
     goal: "자격증 하나 따기",
     description:
-      "스펙 쌓기? 자기만족? 뭐든 OK. 올해는 뭔가 하나 따놓자. 이력서에 한 줄 추가 ㄱㄱ",
+      "스펙 쌓기? 자기만족? 뭐든 OK. 올해는 뭔가 하나 따놓자.\n이력서에 한 줄 추가 ㄱㄱ",
     emoji: "",
     color: "#4299E1",
     tips: [
@@ -206,7 +206,7 @@ export const results: Record<string, Result> = {
     title: "언어러너",
     goal: "외국어 하나 시작하기",
     description:
-      "영어? 일본어? 스페인어? 뭐든 하나 시작해봐. 매일 10분이면 1년 후엔 달라져 있음",
+      "영어? 일본어? 스페인어? 뭐든 하나 시작해봐.\n매일 10분이면 1년 후엔 달라져 있음",
     emoji: "",
     color: "#667EEA",
     tips: [
@@ -226,7 +226,7 @@ export const results: Record<string, Result> = {
     title: "독서가",
     goal: "한 달에 책 2권 읽기",
     description:
-      "SNS 보는 시간에 책 읽으면 1년에 24권은 읽는다는 계산... 해보자!",
+      "SNS 보는 시간에 책 읽으면 1년에 24권은 읽는다는 계산...해보자!",
     emoji: "",
     color: "#805AD5",
     tips: [
@@ -248,12 +248,12 @@ export const results: Record<string, Result> = {
     title: "인싸형",
     goal: "한 달에 친구 한 명 만나기",
     description:
-      "바쁘다 바빠 현대사회... 친구들 다 어디 갔지? 먼저 연락해봐. 답장 온다 ㅋㅋ",
+      "바쁘다 바빠 현대사회...친구들 다 어디 갔지?\n먼저 연락해봐. 답장 온다 ㅋㅋ",
     emoji: "",
     color: "#ED64A6",
     tips: [
       "연락 안 한 친구 리스트 만들기",
-      "생일 캘린더 등록 (까먹으면 서운해함)",
+      "생일 캘린더 등록",
       "작은 선물 준비 (커피 쿠폰도 OK)",
     ],
     tmi: {
@@ -268,7 +268,7 @@ export const results: Record<string, Result> = {
     title: "선행러",
     goal: "봉사활동 시작하기",
     description:
-      "나눔은 받는 것보다 주는 기쁨이 더 크대. 작은 것부터 시작해보자!",
+      "나눔은 받는 것보다 주는 기쁨이 더 크대.\n작은 것부터 시작해보자!",
     emoji: "",
     color: "#FC8181",
     tips: [
@@ -394,7 +394,7 @@ export const results: Record<string, Result> = {
     title: "집밥러",
     goal: "주 3회 집밥 해먹기",
     description:
-      "배달비만 모아도 여행 가겠다... 올해는 요리 좀 해보자. 유튜브 보고 따라하면 됨",
+      "배달비만 모아도 여행 가겠다...\n올해는 요리 좀 해보자. 유튜브 보고 따라하면 됨",
     emoji: "",
     color: "#DD6B20",
     tips: [

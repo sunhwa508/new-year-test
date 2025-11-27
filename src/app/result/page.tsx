@@ -22,16 +22,17 @@ export default function ResultPage() {
 
   // 카운트다운 효과
   useEffect(() => {
-    if (result && countdown !== null && countdown > 0) {
+    if (result && countdown !== null && countdown > 1) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
       }, 600);
       return () => clearTimeout(timer);
-    } else if (countdown === 0) {
-      setTimeout(() => {
+    } else if (countdown === 1) {
+      const timer = setTimeout(() => {
         setShowResult(true);
         setCountdown(null);
-      }, 400);
+      }, 600);
+      return () => clearTimeout(timer);
     }
   }, [result, countdown]);
 
@@ -83,7 +84,7 @@ export default function ResultPage() {
         <div className="max-w-md w-full text-center">
           <p className="text-stone-400 text-lg mb-4">두근두근...</p>
           <div className="text-8xl font-black text-stone-900 animate-pulse">
-            {countdown === 0 ? "!" : countdown}
+            {countdown}
           </div>
           <p className="text-stone-400 text-sm mt-6">당신의 새해 목표가 공개됩니다</p>
         </div>

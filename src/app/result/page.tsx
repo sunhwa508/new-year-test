@@ -156,14 +156,8 @@ function ResultContent() {
             </div>
           </div>
 
-          {/* Quote */}
-          <p className="text-center text-stone-500 italic mb-6">
-            &quot;{mainResult.quote}&quot;
-          </p>
-
           {/* Goal */}
           <div className="text-center mb-6">
-            <p className="text-stone-400 text-sm mb-1">새해 목표</p>
             <h1 className="text-2xl font-black text-stone-900">
               &quot;{mainResult.goal}&quot;
             </h1>
@@ -211,10 +205,6 @@ function ResultContent() {
             </div>
           </div>
 
-          {/* Watermark */}
-          <p className="text-center text-stone-300 text-xs mt-4">
-            너에게 딱 맞는 새해 목표 찾기
-          </p>
         </div>
 
         {/* Buttons */}

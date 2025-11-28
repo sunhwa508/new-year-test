@@ -16,11 +16,12 @@ export interface Result {
 
 export const results: Record<string, Result> = {
   // 자기관리 계열
-  godsaeng: {
-    id: "godsaeng",
+  earlybird: {
+    id: "earlybird",
     title: "갓생러",
     goal: "미라클 모닝 30일 챌린지",
-    description: "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감 알잖아. 올해는 한 단계 더 업그레이드 해보자!",
+    description:
+      "남들 자는 새벽에 일어나서 뭐라도 하는 그 쾌감 알잖아. 올해는 한 단계 더 업그레이드 해보자!",
     emoji: "",
     color: "#FF6B6B",
     tips: [
@@ -35,31 +36,14 @@ export const results: Record<string, Result> = {
     },
     quote: "새벽 5시엔 경쟁자가 없다",
   },
-  earlybird: {
-    id: "earlybird",
-    title: "얼리버드",
-    goal: "밤 12시 전에 자기",
-    description: "일찍 자는 습관이 몸에 배어 있는 너. 올해는 수면의 질까지 챙겨보자!",
-    emoji: "",
-    color: "#FFA07A",
-    tips: [
-      "수면 퀄리티 높이기 (수면 트래커 활용)",
-      "취침 루틴 만들어서 더 깊은 잠 자기",
-      "주말에도 같은 시간에 일어나는 습관 유지",
-    ],
-    tmi: {
-      song: "Billie Eilish - i love you",
-      movie: "인셉션 (Inception, 2010)",
-      gift: "고급 베개 & 수면 안대",
-    },
-    quote: "잠이 보약이라는 말, 과학임",
-  },
+
   // 건강 계열
   health: {
     id: "health",
     title: "헬스인",
     goal: "주 3회 운동 습관 만들기",
-    description: "운동이 이미 일상인 너. 올해는 새로운 종목이나 목표에 도전해보자!",
+    description:
+      "운동이 이미 일상인 너. 올해는 새로운 종목이나 목표에 도전해보자!",
     emoji: "",
     color: "#48BB78",
     tips: [
@@ -74,36 +58,18 @@ export const results: Record<string, Result> = {
     },
     quote: "3개월만 버티면 습관 된다더라",
   },
-  dieter: {
-    id: "dieter",
-    title: "다이어터",
-    goal: "건강한 식습관 만들기",
-    description: "건강한 식습관의 중요성을 아는 너. 올해는 더 체계적으로 관리해보자!",
-    emoji: "",
-    color: "#68D391",
-    tips: [
-      "식단 관리 레벨업 (영양소 균형 체크)",
-      "건강한 간식 레시피 도전하기",
-      "식습관 기록으로 패턴 분석해보기",
-    ],
-    tmi: {
-      song: "IU - 팔레트",
-      movie: "리틀 포레스트 (2018)",
-      gift: "건강식품 선물세트",
-    },
-    quote: "천천히 가도 괜찮아, 포기만 안 하면 됨",
-  },
   meditator: {
     id: "meditator",
     title: "명상러",
     goal: "하루 10분 마음 챙김",
-    description: "마음 챙김의 힘을 아는 너. 올해는 명상을 더 깊이 있게 해보자!",
+    description:
+      "마음 챙김의 힘을 아는 너. 올해는 명상을 더 깊이 있게 해보자!",
     emoji: "",
     color: "#9F7AEA",
     tips: [
       "명상 시간 10분 → 20분으로 늘려보기",
       "다양한 명상법 시도 (걷기 명상, 바디스캔 등)",
-      "명상 리트릿 참가해보기",
+      "디지털 디톡스 주간 도전하기",
     ],
     tmi: {
       song: "Enya - Only Time",
@@ -118,7 +84,8 @@ export const results: Record<string, Result> = {
     id: "saver",
     title: "저축왕",
     goal: "매달 10만원 저축하기",
-    description: "저축의 중요성을 아는 너. 올해는 목표 금액을 더 높여보자!",
+    description:
+      "저축의 중요성을 아는 너. 올해는 목표 금액을 더 높여보자!",
     emoji: "",
     color: "#F6AD55",
     tips: [
@@ -133,32 +100,13 @@ export const results: Record<string, Result> = {
     },
     quote: "부자는 하루아침에 안 된다더라",
   },
-  investor: {
-    id: "investor",
-    title: "재테커",
-    goal: "투자 공부 시작하기",
-    description: "이미 재테크에 관심 많은 너. 올해는 포트폴리오를 더 다양하게 만들어보자!",
-    emoji: "",
-    color: "#4FD1C5",
-    tips: [
-      "포트폴리오 다각화 전략 세우기",
-      "새로운 투자 분야 공부 (ETF, 해외주식 등)",
-      "투자 커뮤니티에서 인사이트 공유하기",
-    ],
-    tmi: {
-      song: "Kanye West - Stronger",
-      movie: "빅쇼트 (The Big Short, 2015)",
-      gift: "경제 신문 구독권",
-    },
-    quote: "공부 안 하고 투자하면 기부하는 거임",
-  },
-
   // 자기계발 계열
   learner: {
     id: "learner",
     title: "공부벌레",
     goal: "자격증 하나 따기",
-    description: "배움에 대한 열정이 넘치는 너. 올해는 더 높은 목표에 도전해보자!",
+    description:
+      "배움에 대한 열정이 넘치는 너. 올해는 더 높은 목표에 도전해보자!",
     emoji: "",
     color: "#4299E1",
     tips: [
@@ -173,51 +121,13 @@ export const results: Record<string, Result> = {
     },
     quote: "배움에는 끝이 없다 (근데 자격증은 끝이 있음)",
   },
-  linguist: {
-    id: "linguist",
-    title: "언어러너",
-    goal: "외국어 하나 시작하기",
-    description: "외국어에 진심인 너. 올해는 실전 회화까지 도전해보자!",
-    emoji: "",
-    color: "#667EEA",
-    tips: [
-      "원어민 회화 수업 도전하기",
-      "외국어로 일기 써보기",
-      "해당 언어권 여행 계획 세우기",
-    ],
-    tmi: {
-      song: "Shakira - Waka Waka",
-      movie: "러브 액츄얼리 (Love Actually, 2003)",
-      gift: "언어학습 앱 연간 구독권",
-    },
-    quote: "새 언어 = 새 인생",
-  },
-  reader: {
-    id: "reader",
-    title: "독서가",
-    goal: "한 달에 책 2권 읽기",
-    description: "책과 함께하는 시간을 사랑하는 너. 올해는 독서의 폭을 더 넓혀보자!",
-    emoji: "",
-    color: "#805AD5",
-    tips: [
-      "읽은 책 독후감 기록하기",
-      "새로운 장르 도전 (안 읽던 분야)",
-      "독서 모임에서 책 추천해주기",
-    ],
-    tmi: {
-      song: "잔나비 - 꿈과 책과 힘과 벽",
-      movie: "노팅힐 (Notting Hill, 1999)",
-      gift: "밀리의 서재 구독권",
-    },
-    quote: "책 한 권이 인생을 바꿀 수도 있음",
-  },
-
   // 사회/관계 계열
   connector: {
     id: "connector",
     title: "인싸형",
     goal: "한 달에 친구 한 명 만나기",
-    description: "사람들과 함께하는 걸 좋아하는 너. 올해는 더 깊은 관계를 만들어보자!",
+    description:
+      "사람들과 함께하는 걸 좋아하는 너. 올해는 더 깊은 관계를 만들어보자!",
     emoji: "",
     color: "#ED64A6",
     tips: [
@@ -232,32 +142,13 @@ export const results: Record<string, Result> = {
     },
     quote: "좋은 친구 = 인생 최고의 버프",
   },
-  volunteer: {
-    id: "volunteer",
-    title: "선행러",
-    goal: "봉사활동 시작하기",
-    description: "나눔의 기쁨을 아는 너. 올해는 더 큰 선한 영향력을 펼쳐보자!",
-    emoji: "",
-    color: "#FC8181",
-    tips: [
-      "정기 봉사로 레벨업하기",
-      "봉사 단체에서 리더 역할 맡아보기",
-      "주변 사람들 봉사 활동에 초대하기",
-    ],
-    tmi: {
-      song: "Michael Jackson - Heal the World",
-      movie: "원더 (Wonder, 2017)",
-      gift: "기부 영수증 & 봉사 키트",
-    },
-    quote: "작은 나눔이 세상을 바꾼다",
-  },
-
   // 경험/모험 계열
   traveler: {
     id: "traveler",
     title: "여행러",
     goal: "새로운 곳 3군데 가기",
-    description: "여행을 사랑하는 너. 올해는 새로운 스타일의 여행에 도전해보자!",
+    description:
+      "여행을 사랑하는 너. 올해는 새로운 스타일의 여행에 도전해보자!",
     emoji: "",
     color: "#38B2AC",
     tips: [
@@ -276,7 +167,8 @@ export const results: Record<string, Result> = {
     id: "adventurer",
     title: "도전러",
     goal: "해본 적 없는 것 5개 해보기",
-    description: "도전을 두려워하지 않는 너. 올해는 더 큰 모험에 도전해보자!",
+    description:
+      "도전을 두려워하지 않는 너. 올해는 더 큰 모험에 도전해보자!",
     emoji: "",
     color: "#F56565",
     tips: [
@@ -295,7 +187,8 @@ export const results: Record<string, Result> = {
     id: "hobbyist",
     title: "취미부자",
     goal: "새 취미 3개 시작하기",
-    description: "취미가 곧 인생인 너. 올해는 취미 실력을 한 단계 업그레이드해보자!",
+    description:
+      "취미가 곧 인생인 너. 올해는 취미 실력을 한 단계 업그레이드해보자!",
     emoji: "",
     color: "#ED8936",
     tips: [
@@ -316,7 +209,8 @@ export const results: Record<string, Result> = {
     id: "creator",
     title: "크리에이터",
     goal: "콘텐츠 만들기 시작",
-    description: "콘텐츠 만들기를 즐기는 너. 올해는 더 많은 사람들에게 영향력을 펼쳐보자!",
+    description:
+      "콘텐츠 만들기를 즐기는 너. 올해는 더 많은 사람들에게 영향력을 펼쳐보자!",
     emoji: "",
     color: "#E53E3E",
     tips: [
@@ -331,72 +225,16 @@ export const results: Record<string, Result> = {
     },
     quote: "세상에 너의 이야기를 들려줘",
   },
-  writer: {
-    id: "writer",
-    title: "글쓰는사람",
-    goal: "매일 일기 쓰기",
-    description: "글로 생각을 정리하는 걸 좋아하는 너. 올해는 더 많은 사람들과 글을 나눠보자!",
-    emoji: "",
-    color: "#2D3748",
-    tips: [
-      "글쓰기 분량 늘려보기 (에세이, 단편 등)",
-      "글쓰기 플랫폼에 공개 발행하기",
-      "글쓰기 모임 참여하거나 만들기",
-    ],
-    tmi: {
-      song: "이적 - 하늘을 달리다",
-      movie: "미드나잇 인 파리 (Midnight in Paris, 2011)",
-      gift: "프리미엄 노트 & 만년필",
-    },
-    quote: "오늘의 기록이 내일의 나를 만든다",
-  },
 
   // 라이프스타일 계열
-  homechef: {
-    id: "homechef",
-    title: "집밥러",
-    goal: "주 3회 집밥 해먹기",
-    description: "집밥의 가치를 아는 너. 올해는 요리 실력을 한 단계 올려보자!",
-    emoji: "",
-    color: "#DD6B20",
-    tips: [
-      "새로운 요리 장르 도전 (베이킹, 일식 등)",
-      "나만의 시그니처 레시피 만들기",
-      "친구들 초대해서 홈파티 열기",
-    ],
-    tmi: {
-      song: "백예린 - 그건 아마 우리의 잘못은 아닐 거야",
-      movie: "셰프 (Chef, 2014)",
-      gift: "프리미엄 조리도구 세트",
-    },
-    quote: "집밥 = 최고의 보약",
-  },
-  chillmaster: {
-    id: "chillmaster",
-    title: "워라밸러",
-    goal: "번아웃 없는 1년 보내기",
-    description: "쉼의 가치를 아는 너. 올해는 더 질 높은 휴식을 즐겨보자!",
-    emoji: "",
-    color: "#718096",
-    tips: [
-      "나만의 힐링 루틴 완성하기",
-      "워라밸 노하우 주변에 전파하기",
-      "휴식의 질 높이기 (여행, 스파 등)",
-    ],
-    tmi: {
-      song: "잔나비 - 주저하는 연인들을 위해",
-      movie: "어바웃 타임 (About Time, 2013)",
-      gift: "스파 이용권 & 입욕제 세트",
-    },
-    quote: "쉬는 것도 능력이다",
-  },
   lazybones: {
     id: "lazybones",
     title: "나태형",
     goal: "올해는 좀 덜 미루기",
-    description: "솔직히 귀찮은 거 맞잖아. 올해는 작은 것부터 하나씩 해보자!",
+    description:
+      "솔직히 귀찮은 거 맞잖아. 올해는 작은 것부터 하나씩 해보자!",
     emoji: "",
-    color: "#A0AEC0",
+    color: "#718096",
     tips: [
       "5분만 해보기 챌린지 (시작이 반)",
       "할 일 3개만 정해서 끝내기",
@@ -424,7 +262,7 @@ export interface CalculatedResult {
 export function calculateResult(scores: ScoreMap): Result {
   // 점수가 가장 높은 유형 찾기
   let maxScore = -1;
-  let resultType = "chillmaster";
+  let resultType = "lazybones";
 
   for (const [type, score] of Object.entries(scores)) {
     if (score > maxScore && results[type]) {
@@ -442,7 +280,7 @@ export function calculateResultWithSub(scores: ScoreMap): CalculatedResult {
     .filter(([type]) => results[type])
     .sort((a, b) => b[1] - a[1]);
 
-  const mainType = sortedTypes[0]?.[0] || "chillmaster";
+  const mainType = sortedTypes[0]?.[0] || "lazybones";
   const subType = sortedTypes[1]?.[0];
 
   return {
@@ -451,14 +289,14 @@ export function calculateResultWithSub(scores: ScoreMap): CalculatedResult {
   };
 }
 
-// 카테고리별 그룹핑 (나중에 활용 가능)
+// 카테고리별 그룹핑
 export const resultCategories = {
-  selfcare: ["godsaeng", "earlybird"],
-  health: ["health", "dieter", "meditator"],
-  finance: ["saver", "investor"],
-  growth: ["learner", "linguist", "reader"],
-  social: ["connector", "volunteer"],
+  selfcare: ["earlybird"],
+  health: ["health", "meditator"],
+  finance: ["saver"],
+  growth: ["learner"],
+  social: ["connector"],
   experience: ["traveler", "adventurer", "hobbyist"],
-  creative: ["creator", "writer"],
-  lifestyle: ["homechef", "chillmaster", "lazybones"],
+  creative: ["creator"],
+  lifestyle: ["lazybones"],
 };

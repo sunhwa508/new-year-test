@@ -9,6 +9,7 @@ import {
   results,
 } from "@/data/results";
 import { trackQuizComplete, trackShare } from "@/lib/gtag";
+import AdBanner from "@/components/AdBanner";
 
 function ResultContent() {
   const searchParams = useSearchParams();
@@ -205,6 +206,11 @@ function ResultContent() {
             </div>
           </div>
 
+        </div>
+
+        {/* Ad Banner */}
+        <div className="mt-6">
+          <AdBanner slot="AUTO" format="auto" responsive={true} />
         </div>
 
         {/* Buttons */}

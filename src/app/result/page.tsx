@@ -210,7 +210,7 @@ function ResultContent() {
 
         {/* Ad Banner */}
         <div className="mt-6">
-          <AdBanner slot="AUTO" format="auto" responsive={true} />
+          <AdBanner slot="1700067817" format="auto" responsive={true} />
         </div>
 
         {/* Buttons */}

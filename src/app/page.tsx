@@ -28,6 +28,24 @@ export default function Home() {
           </Link>
 
           <p className="mt-4 text-sm text-stone-400 text-center">약 1분 소요</p>
+
+          {/* 새학기 테스트 배너 */}
+          <Link
+            href="/semester"
+            className="mt-8 block p-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl hover:from-blue-100 hover:to-purple-100 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">📚</span>
+              <div>
+                <p className="font-semibold text-stone-900 text-sm">
+                  NEW! 새 학기 유형 테스트
+                </p>
+                <p className="text-xs text-stone-500">
+                  나는 어떤 대학생일까?
+                </p>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -199,6 +217,28 @@ export default function Home() {
               </p>
             </details>
           </div>
+        </div>
+      </section>
+
+      {/* 궁합 테스트 배너 */}
+      <section className="px-4 py-12 bg-gradient-to-r from-pink-50 to-purple-50">
+        <div className="max-w-md mx-auto">
+          <Link
+            href="/compatibility"
+            className="block p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center gap-4">
+              <span className="text-4xl">💕</span>
+              <div>
+                <h3 className="font-bold text-stone-900 text-lg">
+                  친구와 궁합 보기
+                </h3>
+                <p className="text-stone-500 text-sm">
+                  서로의 새해 목표가 얼마나 잘 맞을까?
+                </p>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

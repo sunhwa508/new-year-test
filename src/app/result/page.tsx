@@ -17,6 +17,7 @@ function ResultContent() {
   const [countdown, setCountdown] = useState<number | null>(3);
   const [showResult, setShowResult] = useState(false);
   const [isSharedResult, setIsSharedResult] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   useEffect(() => {
     // 쿼리 파라미터로 결과 ID가 있는 경우 해당 결과 표시
@@ -111,6 +112,67 @@ function ResultContent() {
       } catch {
         // Clipboard failed
       }
+    }
+  };
+
+  // 이미지 다운로드 (가로/세로)
+  const handleDownloadImage = async (type: "card" | "story" = "card") => {
+    if (!result) return;
+    setIsDownloading(true);
+
+    try {
+      const imageUrl =
+        type === "story"
+          ? `/api/og/story?result=${result.main.id}`
+          : `/api/og?result=${result.main.id}`;
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `새해목표_${result.main.title}_${type === "story" ? "스토리" : "카드"}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      trackShare(`image_download_${type}`);
+    } catch {
+      alert("이미지 다운로드에 실패했습니다.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
+  // 이미지와 함께 공유 (모바일)
+  const handleShareWithImage = async () => {
+    if (!result) return;
+    setIsDownloading(true);
+
+    try {
+      const imageUrl = `/api/og?result=${result.main.id}`;
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const file = new File([blob], `새해목표_${result.main.title}.png`, {
+        type: "image/png",
+      });
+
+      const shareData: ShareData = {
+        title: `나는 ${result.main.title}!`,
+        text: `내 새해 목표는 "${result.main.goal}"! 너는 어떤 유형이야?`,
+        url: `${window.location.origin}/result?result=${result.main.id}`,
+      };
+
+      // 파일 공유 지원 여부 확인
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        shareData.files = [file];
+      }
+
+      await navigator.share(shareData);
+      trackShare("image_share");
+    } catch {
+      // 사용자가 취소했거나 공유 실패
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -213,13 +275,67 @@ function ResultContent() {
           <AdBanner slot="1700067817" format="auto" responsive={true} />
         </div>
 
+        {/* 이미지 공유 버튼 */}
+        <div className="mt-6 bg-gradient-to-r from-pink-500 to-purple-500 p-[2px] rounded-xl">
+          <button
+            onClick={handleShareWithImage}
+            disabled={isDownloading}
+            className="w-full py-4 px-8 bg-white text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 font-bold rounded-xl hover:bg-stone-50 transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            {isDownloading ? (
+              "이미지 생성 중..."
+            ) : (
+              <>
+                <span className="text-pink-500">📸</span>
+                <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                  이미지로 공유하기
+                </span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 이미지 다운로드 버튼 */}
+        <div className="mt-3 flex gap-2">
+          <button
+            onClick={() => handleDownloadImage("card")}
+            disabled={isDownloading}
+            className="flex-1 py-3 px-4 bg-stone-100 text-stone-600 font-medium rounded-xl hover:bg-stone-200 transition-colors duration-200 text-sm disabled:opacity-50"
+          >
+            {isDownloading ? "..." : "카드 저장"}
+          </button>
+          <button
+            onClick={() => handleDownloadImage("story")}
+            disabled={isDownloading}
+            className="flex-1 py-3 px-4 bg-stone-100 text-stone-600 font-medium rounded-xl hover:bg-stone-200 transition-colors duration-200 text-sm disabled:opacity-50"
+          >
+            {isDownloading ? "..." : "스토리 저장"}
+          </button>
+        </div>
+
+        {/* 궁합 테스트 배너 */}
+        <Link
+          href={`/compatibility?type1=${mainResult.id}`}
+          className="mt-4 block w-full p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl hover:from-pink-100 hover:to-purple-100 transition-colors duration-200"
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">💕</span>
+            <div>
+              <p className="font-semibold text-stone-900">친구와 궁합 보기</p>
+              <p className="text-sm text-stone-500">
+                누구랑 새해 목표가 잘 맞을까?
+              </p>
+            </div>
+          </div>
+        </Link>
+
         {/* Buttons */}
-        <div className="mt-6">
+        <div className="mt-4">
           <button
             onClick={handleResultShare}
             className="w-full py-4 px-8 bg-stone-900 text-white font-semibold rounded-xl hover:bg-stone-800 transition-colors duration-200 mb-3"
           >
-            내 결과 공유하기
+            링크로 공유하기
           </button>
 
           <button
